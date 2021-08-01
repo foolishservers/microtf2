@@ -97,9 +97,9 @@ public void Bossgame1_OnMinigameSelected(int client)
 		int column = client;
 		int row = 0;
 
-		while (column > 12)
+		while (column > 8)
 		{
-			column = column - 12;
+			column = column - 8;
 			row = row + 1;
 		}
 
