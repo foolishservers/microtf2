@@ -216,15 +216,15 @@
 	}
 	"Minigame9_Caption_SimonSaysTaunt"
 	{
-		"ko"		"주인님가 말하길, 도발해!"
+		"ko"		"주인님이 말하길, 도발해!"
 	}
 	"Minigame9_Caption_SimonSaysJump"
 	{
-		"ko"		"주인님가 말하길, 점프해!"
+		"ko"		"주인님이 말하길, 점프해!"
 	}
 	"Minigame9_Caption_SimonSaysCrouch"
 	{
-		"ko"		"주인님가 말하길, 앉아!"
+		"ko"		"주인님이 말하길, 앉아!"
 	}
 	"Minigame9_Caption_SomeoneSaysTaunt"
 	{
@@ -440,7 +440,7 @@
 	}
 	"Bossgame7_Caption_Explain"
 	{
-		"ko"		"화면에 나오는 영어 단어를 최대한 빨리 입력하세요!"
+		"ko"		"화면에 나오는 단어를 최대한 빨리 입력하세요!"
 	}
 	"Bossgame7_Caption_Start"
 	{
