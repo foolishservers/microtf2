@@ -4,7 +4,7 @@
  * Say the Words
  */
 
-#define BOSSGAME7_SAYTEXTANSWERS_CAPACITY 512
+#define BOSSGAME7_SAYTEXTANSWERS_CAPACITY 1024
 
 int g_iBossgame7LastBgmPlayedIndex = -1;
 char g_sBossgame7Bgm[][] = 
