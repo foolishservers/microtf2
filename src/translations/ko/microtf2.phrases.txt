@@ -494,7 +494,7 @@
 	}
 	"SpecialRound1_Name"
 	{
-		"ko"		"랜덤 속도"
+		"ko"		"업 앤 다운"
 	}
 	"SpecialRound1_Description"
 	{
