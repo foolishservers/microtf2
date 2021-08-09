@@ -21,6 +21,7 @@ stock void PreloadSound(const char[] sound)
 	}
 
 	PrecacheSound(sound, true);
+	PrintToServer("[WW] Precached %s", sound);
 
 	// This call intentionally does not add sounds to the files download table.
 	// This is because the correct approach to distributing the gamemode is to pack 
