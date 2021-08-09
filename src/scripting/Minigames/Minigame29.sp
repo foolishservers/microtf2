@@ -18,6 +18,7 @@ public void Minigame29_OnMinigameSelectedPre()
 {
 	if (g_iActiveMinigameId == 29)
 	{
+		g_hConVarFriendlyFire.BoolValue = true;
 		g_eDamageBlockMode = EDamageBlockMode_Nothing;
 		g_bMinigame29IsCheckingCollisions = false;
 		CreateTimer(1.5, Minigame29_EnableCollisionCheck);

@@ -185,6 +185,10 @@
 	{
 		"en"		"SHOOT THE MOST BARRELS!"
 	}
+	"Bossgame9_Caption"
+	{
+		"en"		"JUMP ROPE!"
+	}
 	"Bossgame7_Caption"
 	{
 		"en"		""
@@ -465,6 +469,10 @@
 	"Minigame29_Caption"
 	{
 		"en"		"DON'T TOUCH ANYONE!"
+	}
+	"Minigame31_Caption"
+	{
+		"en"		"PICK A ROOM!"
 	}
 	"Bossgame7_Caption_TypeTheWords"
 	{

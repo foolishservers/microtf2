@@ -266,3 +266,17 @@ stock int GetRandomParticipatingPlayerId()
 
 	return -1;
 }
+
+stock int GetEntityByName(const char[] name, const char[] classname)
+{
+	int ret = -1;
+	while((ret = FindEntityByClassname(ret, classname)) != -1)
+	{
+		char entityName[64];
+		GetEntPropString(ret, Prop_Data, "m_iName", entityName, sizeof(entityName));
+		
+		if(StrEqual(entityName, name)) break;
+	}
+	
+	return ret;
+}

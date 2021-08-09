@@ -28,7 +28,7 @@
 
 //#define DEBUG
 //#define LOGGING_STARTUP
-#define PLUGIN_VERSION "5.0.0 (dev-8692bdf)"
+#define PLUGIN_VERSION "5.0.0 (dev-8692bdf, Foolish mod)"
 #define PLUGIN_PREFIX "\x0700FFFF[ \x07FFFF00WarioWare \x0700FFFF] {default}"
 #define PLUGIN_MAPPREFIX "warioware_redux_"
 

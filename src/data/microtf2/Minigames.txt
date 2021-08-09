@@ -250,4 +250,20 @@
 		"MaximumPlayerCount"		"24"
 		"MinimumPlayerCount"		"6"
 	}
+	"30"
+	{
+		"enabled"		"1"
+		"BackgroundMusic"		"gemidyne/warioware/minigames/bgm/6.mp3"
+		"CaptionIsDynamic"		"1"
+		"EntryPoint"		"MC30_EntryPoint"
+		"DynamicCaptionMethod"		"MC30_GetDynamicCaption"
+		"BackgroundMusic_Length"		"4.075062"
+	}
+	"31"
+	{
+		"enabled"		"1"
+		"BackgroundMusic"		"gemidyne/warioware/minigames/bgm/mc31.mp3"
+		"EntryPoint"		"MC31_EntryPoint"
+		"BackgroundMusic_Length"		"9.33"
+	}
 }
