@@ -205,7 +205,7 @@ public Action Timer_GameLogic_EngineInitialisation(Handle timer)
 	g_bIsMinigameEnding = false;
 	g_bIsMapEnding = false;
 	g_bIsGameOver = false;
-	g_bIsBlockingTaunts = true;
+	g_bIsBlockingTaunts = false;
 	g_bIsBlockingKillCommands = true;
 	g_bIsBlockingPlayerClassVoices = false;
 	g_eDamageBlockMode = EDamageBlockMode_All;
@@ -591,7 +591,7 @@ public Action Timer_GameLogic_EndMinigame(Handle timer)
 	g_iActiveBossgameId = 0;
 
 	g_bIsBlockingKillCommands = true;
-	g_bIsBlockingTaunts = true;
+	g_bIsBlockingTaunts = false;
 	g_eDamageBlockMode = EDamageBlockMode_All;
 	g_bForceCalculationCritical = false;
 	g_bIsBlockingPlayerClassVoices = false;
@@ -1257,7 +1257,7 @@ public Action Timer_GameLogic_GameOverEnd(Handle timer)
 	ResetPlayedGamePools();
 
 	g_bIsBlockingKillCommands = true;
-	g_bIsBlockingTaunts = true;
+	g_bIsBlockingTaunts = false;
 	g_bIsBlockingPlayerClassVoices = false;
 	g_eDamageBlockMode = EDamageBlockMode_All;
 

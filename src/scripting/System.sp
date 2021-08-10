@@ -65,7 +65,7 @@ public void System_OnMapStart()
 	g_bIsMinigameEnding = false;
 	g_bIsMapEnding = false;
 	g_bIsGameOver = false;
-	g_bIsBlockingTaunts = true;
+	g_bIsBlockingTaunts = false;
 	g_bIsBlockingKillCommands = true;
 	g_eDamageBlockMode = EDamageBlockMode_All;
 

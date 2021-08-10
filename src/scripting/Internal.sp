@@ -142,7 +142,7 @@ stock void ResetGamemode()
 
 	g_eDamageBlockMode = EDamageBlockMode_All;
 	g_bIsBlockingKillCommands = true;
-	g_bIsBlockingTaunts = true;
+	g_bIsBlockingTaunts = false;
 	g_bForceCalculationCritical = false;
 
 	SetTeamScore(view_as<int>(TFTeam_Red), 0);

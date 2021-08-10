@@ -58,6 +58,8 @@ public void Minigame26_OnMinigameSelectedPre()
 
 		g_eDamageBlockMode = EDamageBlockMode_All;
 		g_bForceCalculationCritical = true;
+		
+		g_bIsBlockingTaunts = true;
 	}
 }
 
