@@ -7,6 +7,7 @@
 int g_BC9RotateBase;
 float g_fBC9Speed;
 float g_fBC9SpeedMult;
+bool g_bBC9Phase;
 
 public void BC9_EntryPoint()
 {
@@ -25,7 +26,7 @@ public void BC9_OnMinigameSelectedPre()
 		g_eDamageBlockMode = EDamageBlockMode_OtherPlayersOnly;
 		
 		g_BC9RotateBase = GetEntityByName("mc31_rope_base", "func_rotating");
-		g_fBC9SpeedMult = 0.016666 * GetTickInterval();
+		g_fBC9SpeedMult = 0.016666 * GetTickInterval() / 0.7;
 	}
 }
 
@@ -99,9 +100,9 @@ public void BC9_OnMinigameSelected(int client)
 	
 	TeleportEntity(client, pos, ang, vel);
 	
+	g_bBC9Phase = false;
 	AcceptEntityInput(g_BC9RotateBase, "Start");
-	
-	g_fBC9Speed = 0.0;
+	g_fBC9Speed = 0.18;
 }
 
 public void BC9_OnGameFrame()
@@ -119,7 +120,15 @@ public void BC9_OnGameFrame()
 	g_fBC9Speed += g_fBC9SpeedMult;
 	if(g_fBC9Speed > 1.0) g_fBC9Speed = 1.0;
 	
-	BC9_SetRopeSpeed((Sine(DegToRad(270.0 + (g_fBC9Speed * 90.0))) + 1.0) * 0.78 + 0.22);
+	if((Sine(DegToRad(270.0 + (g_fBC9Speed * 90.0))) + 1.0) * 0.7 >= 0.7)
+	{
+		g_bBC9Phase = true;
+		g_fBC9Speed = 0.7;
+		g_fBC9SpeedMult *= 0.7;
+	}
+	
+	if(g_bBC9Phase) BC9_SetRopeSpeed(g_fBC9Speed);
+	else BC9_SetRopeSpeed((Sine(DegToRad(270.0 + (g_fBC9Speed * 90.0))) + 1.0) * 0.7);
 }
 
 public void BC9_OnPlayerDeath(int client)

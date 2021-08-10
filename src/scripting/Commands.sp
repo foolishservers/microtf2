@@ -22,7 +22,7 @@ void InitializeCommands()
 
 public Action CmdOnPlayerTaunt(int client, const char[] command, int args)
 {
-	if (!g_bIsPluginEnabled)
+	/*if (!g_bIsPluginEnabled)
 	{
 		return Plugin_Continue;
 	}
@@ -31,7 +31,9 @@ public Action CmdOnPlayerTaunt(int client, const char[] command, int args)
 	PrintToServer("[WWDBG] Client num #%d CmdOnPlayerTaunt. g_bIsBlockingTaunts: %s", client, g_bIsBlockingTaunts ? "True": "False");
 	#endif
 
-	return (g_bIsBlockingTaunts ? Plugin_Handled : Plugin_Continue);
+	return (g_bIsBlockingTaunts ? Plugin_Handled : Plugin_Continue);*/
+	
+	return Plugin_Continue;
 }
 
 public Action CmdOnPlayerKill(int client, const char[] command, int args)
