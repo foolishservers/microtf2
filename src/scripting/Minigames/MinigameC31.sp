@@ -10,7 +10,6 @@ public void MC31_EntryPoint()
 {
 	g_pfOnMinigameSelectedPre.AddFunction(INVALID_HANDLE, MC31_OnMinigameSelectedPre);
 	g_pfOnMinigameSelected.AddFunction(INVALID_HANDLE, MC31_OnMinigameSelected);
-	g_pfOnMinigameFinishPost.AddFunction(INVALID_HANDLE, MC31_OnMinigameFinishPost);
 	g_pfOnMinigameFinish.AddFunction(INVALID_HANDLE, MC31_OnMinigameFinish);
 }
 
@@ -114,19 +113,6 @@ public void MC31_OnMinigameFinish()
 			player.Respawn();
 			SDKUnhook(i, SDKHook_OnTakeDamage, Minigame18_OnTakeDamage);
 		}
-	}
-}
-
-public void MC31_OnMinigameFinishPost(int client)
-{
-	if(g_iActiveMinigameId != 31)
-	{
-		return;
-	}
-	
-	if(!g_bIsMinigameActive)
-	{
-		return;
 	}
 	
 	MC31_SetDoorOpen(1, false);
