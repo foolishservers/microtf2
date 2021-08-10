@@ -232,15 +232,15 @@
 	}
 	"Minigame9_Caption_SomeoneSaysTaunt"
 	{
-		"ko"		"돌쇠가 말하길, 도발해!"
+		"ko"		"춘식이가 말하길, 도발해!"
 	}
 	"Minigame9_Caption_SomeoneSaysJump"
 	{
-		"ko"		"돌쇠가 말하길, 점프해!"
+		"ko"		"춘식이가 말하길, 점프해!"
 	}
 	"Minigame9_Caption_SomeoneSaysCrouch"
 	{
-		"ko"		"돌쇠가 말하길, 앉아!"
+		"ko"		"춘식이가 말하길, 앉아!"
 	}
 	"Minigame9_Caption_SimonDidntSayIt"
 	{
