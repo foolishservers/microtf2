@@ -101,6 +101,7 @@ public void BC9_OnMinigameSelected(int client)
 	TeleportEntity(client, pos, ang, vel);
 	
 	g_bBC9Phase = false;
+	AcceptEntityInput(g_BC9RotateBase, "SnapToStartPos");
 	AcceptEntityInput(g_BC9RotateBase, "Start");
 	g_fBC9Speed = 0.18;
 }

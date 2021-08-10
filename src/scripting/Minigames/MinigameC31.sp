@@ -60,7 +60,6 @@ public void MC31_OnMinigameSelected(int client)
 
 	if(player.IsValid)
 	{
-		player.Class = TFClass_Pyro;
 		player.SetGodMode(false);
 		player.SetCollisionsEnabled(false);
 		player.ResetHealth();
