@@ -1,19 +1,19 @@
 /**
- * MicroTF2 - Minigame C31
+ * MicroTF2 - Minigame C2
  * 
  * Pick a door!
  */
 
-int g_MC31Ans;
+int g_MC2Ans;
 
-public void MC31_EntryPoint()
+public void MC2_EntryPoint()
 {
-	g_pfOnMinigameSelectedPre.AddFunction(INVALID_HANDLE, MC31_OnMinigameSelectedPre);
-	g_pfOnMinigameSelected.AddFunction(INVALID_HANDLE, MC31_OnMinigameSelected);
-	g_pfOnMinigameFinish.AddFunction(INVALID_HANDLE, MC31_OnMinigameFinish);
+	g_pfOnMinigameSelectedPre.AddFunction(INVALID_HANDLE, MC2_OnMinigameSelectedPre);
+	g_pfOnMinigameSelected.AddFunction(INVALID_HANDLE, MC2_OnMinigameSelected);
+	g_pfOnMinigameFinish.AddFunction(INVALID_HANDLE, MC2_OnMinigameFinish);
 }
 
-public void MC31_OnMinigameSelectedPre()
+public void MC2_OnMinigameSelectedPre()
 {
 	if(g_iActiveMinigameId == 31)
 	{
@@ -31,20 +31,20 @@ public void MC31_OnMinigameSelectedPre()
 				if (strcmp(entityName, expectedEntityName) == 0)
 				{
 					AcceptEntityInput(entity, "Enable", -1, -1, -1);
-					HookSingleEntityOutput(entity, "OnStartTouch", MC31_OnHurtStartTouch);
+					HookSingleEntityOutput(entity, "OnStartTouch", MC2_OnHurtStartTouch);
 				}
 			}
 		}
 		
-		g_MC31Ans = GetRandomInt(1, 3);
+		g_MC2Ans = GetRandomInt(1, 3);
 		
-		MC31_SetDoorOpen(1, true);
-		MC31_SetDoorOpen(2, true);
-		MC31_SetDoorOpen(3, true);
+		MC2_SetDoorOpen(1, true);
+		MC2_SetDoorOpen(2, true);
+		MC2_SetDoorOpen(3, true);
 	}
 }
 
-public void MC31_OnMinigameSelected(int client)
+public void MC2_OnMinigameSelected(int client)
 {
 	if(g_iActiveMinigameId != 31)
 	{
@@ -72,7 +72,7 @@ public void MC31_OnMinigameSelected(int client)
 	}
 }
 
-public void MC31_OnMinigameFinish()
+public void MC2_OnMinigameFinish()
 {
 	if(g_iActiveMinigameId != 31)
 	{
@@ -97,7 +97,7 @@ public void MC31_OnMinigameFinish()
 	
 			if (strcmp(entityName, expectedEntityName) == 0)
 			{
-				UnhookSingleEntityOutput(entity, "OnStartTouch", MC31_OnHurtStartTouch);
+				UnhookSingleEntityOutput(entity, "OnStartTouch", MC2_OnHurtStartTouch);
 				AcceptEntityInput(entity, "Disable", -1, -1, -1);
 			}
 		}
@@ -114,12 +114,12 @@ public void MC31_OnMinigameFinish()
 		}
 	}
 	
-	MC31_SetDoorOpen(1, false);
-	MC31_SetDoorOpen(2, false);
-	MC31_SetDoorOpen(3, false);
+	MC2_SetDoorOpen(1, false);
+	MC2_SetDoorOpen(2, false);
+	MC2_SetDoorOpen(3, false);
 }
 
-public Action MC31_OnHurtStartTouch(const char[] output, int caller, int activator, float delay)
+public Action MC2_OnHurtStartTouch(const char[] output, int caller, int activator, float delay)
 {
 	char name[32];
 	GetEntPropString(caller, Prop_Data, "m_iName", name, sizeof(name));
@@ -137,7 +137,7 @@ public Action MC31_OnHurtStartTouch(const char[] output, int caller, int activat
 			float ang[3];
 			float vel[3] = { 0.0, 0.0, 0.0 };
 			
-			if(g_MC31Ans == num)
+			if(g_MC2Ans == num)
 			{
 				player.TriggerSuccess();
 				
@@ -172,7 +172,7 @@ public Action MC31_OnHurtStartTouch(const char[] output, int caller, int activat
 	return Plugin_Continue;
 }
 
-void MC31_SetDoorOpen(int roomNumber, bool open)
+void MC2_SetDoorOpen(int roomNumber, bool open)
 {
 	int entity = -1;
 	char entityName[32];

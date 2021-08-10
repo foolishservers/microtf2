@@ -1,36 +1,36 @@
 /**
- * MicroTF2 - Bossgame C9
+ * MicroTF2 - Bossgame C1
  * 
  * Jump Rope
  */
 
-int g_BC9RotateBase;
-float g_fBC9Speed;
-float g_fBC9SpeedMult;
-bool g_bBC9Phase;
+int g_BC1RotateBase;
+float g_fBC1Speed;
+float g_fBC1SpeedMult;
+bool g_bBC1Phase;
 
-public void BC9_EntryPoint()
+public void BC1_EntryPoint()
 {
-	g_pfOnMinigameSelectedPre.AddFunction(INVALID_HANDLE, BC9_OnMinigameSelectedPre);
-	g_pfOnMinigameSelected.AddFunction(INVALID_HANDLE, BC9_OnMinigameSelected);
-	g_pfOnGameFrame.AddFunction(INVALID_HANDLE, BC9_OnGameFrame);
-	g_pfOnPlayerDeath.AddFunction(INVALID_HANDLE, BC9_OnPlayerDeath);
-	g_pfOnBossStopAttempt.AddFunction(INVALID_HANDLE, BC9_OnBossStopAttempt);
-	g_pfOnMinigameFinish.AddFunction(INVALID_HANDLE, BC9_OnMinigameFinish);
+	g_pfOnMinigameSelectedPre.AddFunction(INVALID_HANDLE, BC1_OnMinigameSelectedPre);
+	g_pfOnMinigameSelected.AddFunction(INVALID_HANDLE, BC1_OnMinigameSelected);
+	g_pfOnGameFrame.AddFunction(INVALID_HANDLE, BC1_OnGameFrame);
+	g_pfOnPlayerDeath.AddFunction(INVALID_HANDLE, BC1_OnPlayerDeath);
+	g_pfOnBossStopAttempt.AddFunction(INVALID_HANDLE, BC1_OnBossStopAttempt);
+	g_pfOnMinigameFinish.AddFunction(INVALID_HANDLE, BC1_OnMinigameFinish);
 }
 
-public void BC9_OnMinigameSelectedPre()
+public void BC1_OnMinigameSelectedPre()
 {
 	if(g_iActiveBossgameId == 9)
 	{
 		g_eDamageBlockMode = EDamageBlockMode_OtherPlayersOnly;
 		
-		g_BC9RotateBase = GetEntityByName("mc31_rope_base", "func_rotating");
-		g_fBC9SpeedMult = 0.016666 * GetTickInterval() / 0.7;
+		g_BC1RotateBase = GetEntityByName("mc31_rope_base", "func_rotating");
+		g_fBC1SpeedMult = 0.016666 * GetTickInterval() / 0.7;
 	}
 }
 
-public void BC9_OnMinigameSelected(int client)
+public void BC1_OnMinigameSelected(int client)
 {
 	if (g_iActiveBossgameId != 9)
 	{
@@ -100,12 +100,12 @@ public void BC9_OnMinigameSelected(int client)
 	
 	TeleportEntity(client, pos, ang, vel);
 	
-	g_bBC9Phase = false;
-	AcceptEntityInput(g_BC9RotateBase, "Start");
-	g_fBC9Speed = 0.18;
+	g_bBC1Phase = false;
+	AcceptEntityInput(g_BC1RotateBase, "Start");
+	g_fBC1Speed = 0.18;
 }
 
-public void BC9_OnGameFrame()
+public void BC1_OnGameFrame()
 {
 	if (g_iActiveBossgameId != 9)
 	{
@@ -117,21 +117,21 @@ public void BC9_OnGameFrame()
 		return;
 	}
 	
-	g_fBC9Speed += g_fBC9SpeedMult;
-	if(g_fBC9Speed > 1.0) g_fBC9Speed = 1.0;
+	g_fBC1Speed += g_fBC1SpeedMult;
+	if(g_fBC1Speed > 1.0) g_fBC1Speed = 1.0;
 	
-	if((Sine(DegToRad(270.0 + (g_fBC9Speed * 90.0))) + 1.0) * 0.7 >= 0.7)
+	if((Sine(DegToRad(270.0 + (g_fBC1Speed * 90.0))) + 1.0) * 0.7 >= 0.7)
 	{
-		g_bBC9Phase = true;
-		g_fBC9Speed = 0.7;
-		g_fBC9SpeedMult *= 0.7;
+		g_bBC1Phase = true;
+		g_fBC1Speed = 0.7;
+		g_fBC1SpeedMult *= 0.7;
 	}
 	
-	if(g_bBC9Phase) BC9_SetRopeSpeed(g_fBC9Speed);
-	else BC9_SetRopeSpeed((Sine(DegToRad(270.0 + (g_fBC9Speed * 90.0))) + 1.0) * 0.7);
+	if(g_bBC1Phase) BC1_SetRopeSpeed(g_fBC1Speed);
+	else BC1_SetRopeSpeed((Sine(DegToRad(270.0 + (g_fBC1Speed * 90.0))) + 1.0) * 0.7);
 }
 
-public void BC9_OnPlayerDeath(int client)
+public void BC1_OnPlayerDeath(int client)
 {
 	if (g_iActiveBossgameId != 9)
 	{
@@ -151,7 +151,7 @@ public void BC9_OnPlayerDeath(int client)
 	}
 }
 
-public void BC9_OnBossStopAttempt()
+public void BC1_OnBossStopAttempt()
 {
 	if (g_iActiveBossgameId != 9)
 	{
@@ -180,17 +180,17 @@ public void BC9_OnBossStopAttempt()
 
 	if (alivePlayers <= 1)
 	{
-		AcceptEntityInput(g_BC9RotateBase, "StopAtStartPos");
+		AcceptEntityInput(g_BC1RotateBase, "StopAtStartPos");
 		
 		winner.TriggerSuccess();
 		
 		float ang[3] = {0.0, 0.0, 0.0};
-		TeleportEntity(g_BC9RotateBase, NULL_VECTOR, ang, NULL_VECTOR);
+		TeleportEntity(g_BC1RotateBase, NULL_VECTOR, ang, NULL_VECTOR);
 		EndBoss();
 	}
 }
 
-public void BC9_OnMinigameFinish()
+public void BC1_OnMinigameFinish()
 {
 	if (g_iActiveBossgameId != 9)
 	{
@@ -203,9 +203,9 @@ public void BC9_OnMinigameFinish()
 	}
 	
 	float ang[3] = {0.0, 0.0, 0.0};
-	TeleportEntity(g_BC9RotateBase, NULL_VECTOR, ang, NULL_VECTOR);
+	TeleportEntity(g_BC1RotateBase, NULL_VECTOR, ang, NULL_VECTOR);
 	
-	AcceptEntityInput(g_BC9RotateBase, "StopAtStartPos");
+	AcceptEntityInput(g_BC1RotateBase, "StopAtStartPos");
 	
 	Player player;
 	for (int i = 1; i <= MaxClients; i++)
@@ -219,10 +219,10 @@ public void BC9_OnMinigameFinish()
 	}
 }
 
-void BC9_SetRopeSpeed(float per)
+void BC1_SetRopeSpeed(float per)
 {
-	if(!IsValidEntity(g_BC9RotateBase)) return;
+	if(!IsValidEntity(g_BC1RotateBase)) return;
 	
 	SetVariantFloat(per);
-	AcceptEntityInput(g_BC9RotateBase, "SetSpeed");
+	AcceptEntityInput(g_BC1RotateBase, "SetSpeed");
 }

@@ -72,7 +72,7 @@
 		"Enabled"		"1"
 		"Duration"		"70.1417"
 		"BackgroundMusic"	"gemidyne/warioware/bosses/bgm/jumprope.mp3"
-		"EntryPoint"		"BC9_EntryPoint"
+		"EntryPoint"		"BC1_EntryPoint"
 		"RequiresMultiplePlayers"	"1"
 		"BlockedSpecialRounds" "3,14"
 	}
