@@ -74,5 +74,6 @@
 		"BackgroundMusic"	"gemidyne/warioware/bosses/bgm/jumprope.mp3"
 		"EntryPoint"		"BC9_EntryPoint"
 		"RequiresMultiplePlayers"	"1"
+		"BlockedSpecialRounds" "3,14"
 	}
 }

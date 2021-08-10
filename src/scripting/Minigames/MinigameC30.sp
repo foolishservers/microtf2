@@ -79,8 +79,8 @@ public void MC30_GetDynamicCaption(int client)
 		player.SetCaption(text);
 		
 		SetHudTextParamsEx(-1.0, 0.26, 4.07, g_MC30Color, {0, 0, 0, 0}, 2, 0.0, 0.0, 0.0);
-		for(int i = 0; i < 5; i++)
-			ShowSyncHudText(player.ClientId, g_hHudSyncColor, g_bMC30IsColor ? g_sMC30SayTextAnswers[g_iMC30Rng] : g_sMC30SayTextAnswers[g_iMC30Answer]);
+		//for(int i = 0; i < 5; i++)
+		ShowSyncHudText(player.ClientId, g_hHudSyncColor, g_bMC30IsColor ? g_sMC30SayTextAnswers[g_iMC30Rng] : g_sMC30SayTextAnswers[g_iMC30Answer]);
 	}
 }
 

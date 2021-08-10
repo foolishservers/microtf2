@@ -153,6 +153,7 @@ public Action MC31_OnHurtStartTouch(const char[] output, int caller, int activat
 			else
 			{
 				player.Status = PlayerStatus_Failed;
+				player.Health = 1;
 				
 				pos[0] = 11369.0;
 				pos[1] = 7843.0;
