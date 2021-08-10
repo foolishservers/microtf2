@@ -205,6 +205,8 @@ public void BC9_OnMinigameFinish()
 	float ang[3] = {0.0, 0.0, 0.0};
 	TeleportEntity(g_BC9RotateBase, NULL_VECTOR, ang, NULL_VECTOR);
 	
+	AcceptEntityInput(g_BC9RotateBase, "StopAtStartPos");
+	
 	Player player;
 	for (int i = 1; i <= MaxClients; i++)
 	{

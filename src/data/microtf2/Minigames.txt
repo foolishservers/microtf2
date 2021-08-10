@@ -243,7 +243,7 @@
 	}
 	"29"
 	{
-		"enabled"		"1"
+		"enabled"		"0"
 		"BackgroundMusic"		"gemidyne/warioware/minigames/bgm/donttouch.mp3"
 		"EntryPoint"		"Minigame29_EntryPoint"
 		"BackgroundMusic_Length"		"6.0"
