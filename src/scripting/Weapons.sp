@@ -133,10 +133,10 @@ void Weapon_ResetToMelee(int client, bool viewModelVisible)
 
 	if (player.IsInGame)
 	{
-		if (player.HasCondition(TFCond_Taunting))
+		/*if (player.HasCondition(TFCond_Taunting))
 		{
 			player.RemoveCondition(TFCond_Taunting);
-		}
+		}*/
 
 		int weapon = 0;
 		int activeWeaponIndex = -1;

@@ -53,6 +53,10 @@ methodmap Player __nullable__
         }
         public set(TFClassType value)
         {
+            if (TF2_IsPlayerInCondition(this.ClientId, TFCond_Taunting))
+			{
+				TF2_RemoveCondition(this.ClientId, TFCond_Taunting);
+			}
             TF2_SetPlayerClass(this.ClientId, value);
         }
     }
@@ -246,6 +250,10 @@ methodmap Player __nullable__
 
     public void SetRandomClass()
     {
+        if (TF2_IsPlayerInCondition(this.ClientId, TFCond_Taunting))
+		{
+			TF2_RemoveCondition(this.ClientId, TFCond_Taunting);
+		}
         this.Class = view_as<TFClassType>(GetRandomInt(1, 9));
     }
 
