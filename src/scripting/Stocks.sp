@@ -153,9 +153,8 @@ stock void ToUpperString(const char[] input, char[] output, int size)
 stock void ReverseString(const char[] input, int inputSize, char[] output)
 {
 	int rc = 0;
-	int len = inputSize;
 
-	for (int c = len - 1; c >= 0; c--)
+	for (int c = inputSize - 1; c >= 0; c--)
 	{
 		if (input[c] == '\0')
 		{
@@ -163,6 +162,7 @@ stock void ReverseString(const char[] input, int inputSize, char[] output)
 		}
 
 		// Thanks to whysodrooled for these Unicode reversal fixes (#199)
+		// you're welcome :)
 
 		if (c >= 1 && (input[c-1] & 0xC0 == 0xC0)) // 2 bytes
 		{
@@ -181,6 +181,15 @@ stock void ReverseString(const char[] input, int inputSize, char[] output)
 				rc++;
 			}
 			c -= 2;
+		}
+		else if (c >= 3 && (input[c-3] & 0xF0 == 0xF0)) // 4 bytes
+		{
+			for (int j = 0; j < 4; j++)
+			{
+				output[rc] = input[c-3+j];
+				rc++;
+			}
+			c -= 3;
 		}
 		else
 		{
