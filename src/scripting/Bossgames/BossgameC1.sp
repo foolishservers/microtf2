@@ -147,7 +147,7 @@ public void BC1_OnPlayerDeath(int client)
 	
 	Player player = new Player(client);
 	
-	if (player.IsValid)
+	if (player.IsValid && player.IsParticipating && player.Status == PlayerStatus_NotWon)
 	{
 		player.Status = PlayerStatus_Failed;
 	}

@@ -88,9 +88,9 @@
 	"11"
 	{
 		"Enabled"		"0"
-		"Duration"		"70.1417"
-		"BackgroundMusic"	"gemidyne/warioware/bosses/bgm/jumprope.mp3"
+		"Duration"		"33.0"
+		"BackgroundMusic"	"gemidyne/warioware/bosses/bgm/basketball.mp3"
 		"EntryPoint"		"BC3_EntryPoint"
-		"RequiresMultiplePlayers"	"1"
+		"BlockedSpecialRounds" "14"
 	}
 }
