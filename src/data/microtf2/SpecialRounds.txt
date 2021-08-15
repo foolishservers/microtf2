@@ -21,6 +21,13 @@
 		"Name"		"Low Gravity"
 		"Description"	"Space? SPACE! SPAAAAAAAAAAAAAAACEEEEEEE!"
 	}
+	"4"
+	{
+		"Enabled"	"0"
+		"Name"		"Chill Pill"
+		"Description"	"No Speed Ups, All Round!"
+		"DisableSpeedEvents"	"1"
+	}
 	"5"
 	{
 		"Name"		"Game Time Attack"
@@ -32,6 +39,14 @@
 		"Name"		"Up and Down"
 		"Description"	"Random Speeds are chosen throughout the round!"
 		"DisableSpeedEvents"	"1"
+	}
+	"7"
+	{
+		"Enabled"	"0"
+		"Name"		"Slow-mo"
+		"Description"	"Everything slows down!"
+		"DisableSpeedEvents"	"1"
+		"BossGameThreshold"	"10"
 	}
 	"8"
 	{

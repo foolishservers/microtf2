@@ -11,6 +11,7 @@
 
 int g_iLoadedSpecialRoundCount = 0;
 
+bool g_bSpecialRoundEnabled[SPR_MAX+1];
 bool g_bSpecialRoundSpeedEventsDisabled[SPR_MAX+1];
 bool g_bSpecialRoundMultiplePlayersOnly[SPR_MAX+1];
 int g_iSpecialRoundBossGameThreshold[SPR_MAX+1];
@@ -50,6 +51,7 @@ void InitializeSpecialRounds()
 
 		do
 		{
+			g_bSpecialRoundEnabled[i] = (kv.GetNum("Enabled", 1) == 1);
 			g_bSpecialRoundSpeedEventsDisabled[i] = (kv.GetNum("DisableSpeedEvents", 0) == 1);
 			g_bSpecialRoundMultiplePlayersOnly[i] = (kv.GetNum("MultiplePlayersOnly", 0) == 1);
 			g_iSpecialRoundBossGameThreshold[i] = kv.GetNum("g_iBossGameThreshold", 0);
@@ -186,6 +188,8 @@ public void SelectNewSpecialRound()
 
 stock bool SpecialRound_IsAvailable()
 {
+	if(g_bSpecialRoundEnabled[g_iSpecialRoundId]) return false;
+	
 	if (g_bSpecialRoundMultiplePlayersOnly[g_iSpecialRoundId])
 	{
 		if (GetTeamClientCount(2) == 0 || GetTeamClientCount(3) == 0)

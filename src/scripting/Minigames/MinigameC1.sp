@@ -3,6 +3,8 @@
  * 
  * Say the Word! (Word or Color)
  */
+
+#define MC1_NUM 30
  
 char g_sMC1SayTextAnswers[][] =
 {
@@ -45,7 +47,7 @@ public void MC1_EntryPoint()
 
 public void MC1_OnMinigameSelectedPre()
 {
-	if (g_iActiveMinigameId == 30)
+	if (g_iActiveMinigameId == MC1_NUM)
 	{
 		g_iMC1Answer = GetRandomInt(0, sizeof(g_sMC1SayTextAnswers) - 1);
 		g_bMC1IsColor = view_as<bool>(GetRandomInt(0, 1));
@@ -91,7 +93,7 @@ public Action MC1_OnChatMessage(int client, const char[] messageText, bool isTea
 		return Plugin_Continue;
 	}
 
-	if (g_iActiveMinigameId != 30)
+	if (g_iActiveMinigameId != MC1_NUM)
 	{
 		return Plugin_Continue;
 	}

@@ -511,6 +511,10 @@
 	{
 		"en"		"PICK A ROOM!"
 	}
+	"Minigame32_Caption"
+	{
+		"en"		"AVOID THE TRAINS!"
+	}
 	"Bossgame7_Caption_TypeTheWords"
 	{
 		"en"		"TYPE THE WORDS!"

@@ -4,6 +4,8 @@
  * Jump Rope
  */
 
+#define BC1_NUM 9
+
 int g_BC1RotateBase;
 float g_fBC1Speed;
 float g_fBC1SpeedMult;
@@ -21,7 +23,7 @@ public void BC1_EntryPoint()
 
 public void BC1_OnMinigameSelectedPre()
 {
-	if(g_iActiveBossgameId == 9)
+	if(g_iActiveBossgameId == BC1_NUM)
 	{
 		g_eDamageBlockMode = EDamageBlockMode_OtherPlayersOnly;
 		
@@ -32,7 +34,7 @@ public void BC1_OnMinigameSelectedPre()
 
 public void BC1_OnMinigameSelected(int client)
 {
-	if (g_iActiveBossgameId != 9)
+	if (g_iActiveBossgameId != BC1_NUM)
 	{
 		return;
 	}
@@ -107,7 +109,7 @@ public void BC1_OnMinigameSelected(int client)
 
 public void BC1_OnGameFrame()
 {
-	if (g_iActiveBossgameId != 9)
+	if (g_iActiveBossgameId != BC1_NUM)
 	{
 		return;
 	}
@@ -133,7 +135,7 @@ public void BC1_OnGameFrame()
 
 public void BC1_OnPlayerDeath(int client)
 {
-	if (g_iActiveBossgameId != 9)
+	if (g_iActiveBossgameId != BC1_NUM)
 	{
 		return;
 	}
@@ -153,7 +155,7 @@ public void BC1_OnPlayerDeath(int client)
 
 public void BC1_OnBossStopAttempt()
 {
-	if (g_iActiveBossgameId != 9)
+	if (g_iActiveBossgameId != BC1_NUM)
 	{
 		return;
 	}
@@ -192,7 +194,7 @@ public void BC1_OnBossStopAttempt()
 
 public void BC1_OnMinigameFinish()
 {
-	if (g_iActiveBossgameId != 9)
+	if (g_iActiveBossgameId != BC1_NUM)
 	{
 		return;
 	}

@@ -262,8 +262,15 @@
 	"31"
 	{
 		"enabled"		"1"
-		"BackgroundMusic"		"gemidyne/warioware/minigames/bgm/mc31.mp3"
+		"BackgroundMusic"		"gemidyne/warioware/minigames/bgm/mc2.mp3"
 		"EntryPoint"		"MC2_EntryPoint"
 		"BackgroundMusic_Length"		"9.33"
+	}
+	"32"
+	{
+		"enabled"		"1"
+		"BackgroundMusic"		"gemidyne/warioware/minigames/bgm/mc3.mp3"
+		"EntryPoint"		"MC3_EntryPoint"
+		"BackgroundMusic_Length"		"3.95079"
 	}
 }

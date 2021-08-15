@@ -4,6 +4,8 @@
  * Pick a door!
  */
 
+#define MC2_NUM 31
+
 int g_MC2Ans;
 
 public void MC2_EntryPoint()
@@ -15,7 +17,7 @@ public void MC2_EntryPoint()
 
 public void MC2_OnMinigameSelectedPre()
 {
-	if(g_iActiveMinigameId == 31)
+	if(g_iActiveMinigameId == MC2_NUM)
 	{
 		char entityName[32];
 		char expectedEntityName[32];
@@ -46,7 +48,7 @@ public void MC2_OnMinigameSelectedPre()
 
 public void MC2_OnMinigameSelected(int client)
 {
-	if(g_iActiveMinigameId != 31)
+	if(g_iActiveMinigameId != MC2_NUM)
 	{
 		return;
 	}
@@ -74,7 +76,7 @@ public void MC2_OnMinigameSelected(int client)
 
 public void MC2_OnMinigameFinish()
 {
-	if(g_iActiveMinigameId != 31)
+	if(g_iActiveMinigameId != MC2_NUM)
 	{
 		return;
 	}

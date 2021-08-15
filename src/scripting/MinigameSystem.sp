@@ -66,6 +66,7 @@ ArrayList g_hPlayedBossgamePool;
 #include "Minigames/Minigame29.sp"
 #include "Minigames/MinigameC1.sp"
 #include "Minigames/MinigameC2.sp"
+#include "Minigames/MinigameC3.sp"
 
 // Bossgames
 #include "Bossgames/Bossgame1.sp"
@@ -77,6 +78,8 @@ ArrayList g_hPlayedBossgamePool;
 #include "Bossgames/Bossgame7.sp"
 #include "Bossgames/Bossgame8.sp"
 #include "Bossgames/BossgameC1.sp"
+#include "Bossgames/BossgameC2.sp"
+#include "Bossgames/BossgameC3.sp"
 
 public void InitializeMinigames()
 {

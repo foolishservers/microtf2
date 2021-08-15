@@ -76,4 +76,21 @@
 		"RequiresMultiplePlayers"	"1"
 		"BlockedSpecialRounds" "3,14"
 	}
+	"10"
+	{
+		"Enabled"		"0"
+		"Duration"		"70.1417"
+		"BackgroundMusic"	"gemidyne/warioware/bosses/bgm/jumprope.mp3"
+		"EntryPoint"		"BC2_EntryPoint"
+		"RequiresMultiplePlayers"	"1"
+		"BlockedSpecialRounds" "3,14"
+	}
+	"11"
+	{
+		"Enabled"		"0"
+		"Duration"		"70.1417"
+		"BackgroundMusic"	"gemidyne/warioware/bosses/bgm/jumprope.mp3"
+		"EntryPoint"		"BC3_EntryPoint"
+		"RequiresMultiplePlayers"	"1"
+	}
 }
