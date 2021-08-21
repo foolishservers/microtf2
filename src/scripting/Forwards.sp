@@ -317,6 +317,15 @@ PrivateForward g_pfOnPlayerCollisionWithPlayer;
  */
 PrivateForward g_pfOnPlayerChatMessage;
 
+/**
+ * Custom
+ * Forward is called when a sound is emitted
+ *
+ * @param same as NormalSHook parameters
+ * @noreturn
+ */
+PrivateForward g_pfOnSoundEmit;
+
 void InitializeForwards()
 {
 	#if defined LOGGING_STARTUP
@@ -359,6 +368,8 @@ void InitializeForwards()
 	g_pfOnPlayerConditionRemoved = new PrivateForward(ET_Ignore, Param_Any, Param_Any);
 	g_pfOnPlayerCollisionWithPlayer = new PrivateForward(ET_Ignore, Param_Any, Param_Any);
 	g_pfOnPlayerChatMessage = new PrivateForward(ET_Event, Param_Any, Param_String, Param_Any);
+	g_pfOnSoundEmit = new PrivateForward(ET_Event, Param_Array, Param_CellByRef, Param_String, Param_CellByRef, Param_CellByRef,
+	Param_FloatByRef, Param_CellByRef, Param_CellByRef, Param_CellByRef, Param_String, Param_CellByRef);
 }
 
 void RemoveForwardsFromMemory()
@@ -398,6 +409,7 @@ void RemoveForwardsFromMemory()
 	SafelyRemoveAllFromForward(g_pfOnPlayerConditionRemoved);
 	SafelyRemoveAllFromForward(g_pfOnPlayerCollisionWithPlayer);
 	SafelyRemoveAllFromForward(g_pfOnPlayerChatMessage);
+	SafelyRemoveAllFromForward(g_pfOnSoundEmit);
 }
 
 stock void SafelyRemoveAllFromForward(PrivateForward fwd)

@@ -165,9 +165,50 @@
 	{
 		"ko"		""
 	}
+	"Bossgame8_Caption_CountTheProps"
+	{
+		"en"		"물건은 몇 개일까요?"
+	}
+	"Bossgame8_Caption_GetReady"
+	{
+		"en"		"준비!"
+	}
+	"Bossgame8_Caption_CorrectAnswerWas_Hidden"
+	{
+		"en"		"정답은...\n???"
+	}
+	"Bossgame8_Caption_CorrectAnswerWas_Visible"
+	{
+		"#format"		"{1:i}"
+		"en"		"정답은...\n{1}!"
+	}
+	"Bossgame8_Caption_ChooseARoom"
+	{
+		"#format"		"{1:s},{2:i},{3:i},{4:i},{5:i}"
+		"en"		"{1}이(가) 몇개 있었을까요? 방을 골라 선택하세요!\nA: {2}   B: {3}   C: {4}\n남은 시간: {5}초"
+	}
+	"Bossgame8_Annotation_AnswerRoomA"
+	{
+		"#format"		"{1:i}"
+		"en"		"A: {1}"
+	}
+	"Bossgame8_Annotation_AnswerRoomB"
+	{
+		"#format"		"{1:i}"
+		"en"		"B: {1}"
+	}
+	"Bossgame8_Annotation_AnswerRoomC"
+	{
+		"#format"		"{1:i}"
+		"en"		"C: {1}"
+	}
 	"Bossgame9_Caption"
 	{
-		"en"		"줄넘기 하세요!"
+		"ko"		"줄넘기 하세요!"
+	}
+	"Bossgame11_Caption"
+	{
+		"ko"		"유탄을 5번 넣으세요!"
 	}
 	"Minigame1_Caption"
 	{
@@ -449,6 +490,10 @@
 	"Minigame32_Caption"
 	{
 		"ko"		"기차를 피하세요!"
+	}
+	"Minigame33_Caption"
+	{
+		"ko"		"로켓을 반사하세요!"
 	}
 	"Bossgame7_Caption_Explain"
 	{

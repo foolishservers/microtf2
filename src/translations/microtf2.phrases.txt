@@ -185,10 +185,6 @@
 	{
 		"en"		"SHOOT THE MOST BARRELS!"
 	}
-	"Bossgame9_Caption"
-	{
-		"en"		"JUMP ROPE!"
-	}
 	"Bossgame7_Caption"
 	{
 		"en"		""
@@ -233,6 +229,14 @@
 	{
 		"#format"		"{1:i}"
 		"en"		"Room C: {1}"
+	}
+	"Bossgame9_Caption"
+	{
+		"en"		"JUMP ROPE!"
+	}
+	"Bossgame11_Caption"
+	{
+		"en"		"SCORE 5 GOALS!"
 	}
 	"Minigame1_Caption"
 	{
@@ -514,6 +518,10 @@
 	"Minigame32_Caption"
 	{
 		"en"		"AVOID THE TRAINS!"
+	}
+	"Minigame33_Caption"
+	{
+		"en"		"AIRBLAST THE ROCKETS!"
 	}
 	"Bossgame7_Caption_TypeTheWords"
 	{

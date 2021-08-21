@@ -79,6 +79,9 @@ public void MC3_OnMinigameSelectedPre()
 		pos[1] = -8240.0 + (144.0 * float(loc));
 		TeleportEntity(g_MC3Train2, pos, ang, NULL_VECTOR);
 		TeleportEntity(g_MC3Train2Mult, pos, ang, NULL_VECTOR);
+		
+		g_MC3Alpha = 255;
+		CreateTimer(0.5, MC3_TimerLoop, _, TIMER_REPEAT | TIMER_FLAG_NO_MAPCHANGE);
 	}
 }
 
@@ -104,9 +107,6 @@ public void MC3_OnMinigameSelected(int client)
 		player.ResetHealth();
 		player.ResetWeapon(false);
 	}
-	
-	g_MC3Alpha = 255;
-	CreateTimer(0.5, MC3_TimerLoop, _, TIMER_REPEAT | TIMER_FLAG_NO_MAPCHANGE);
 }
 
 public Action MC3_TimerLoop(Handle timer)

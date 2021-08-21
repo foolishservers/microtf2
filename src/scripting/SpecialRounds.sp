@@ -188,7 +188,7 @@ public void SelectNewSpecialRound()
 
 stock bool SpecialRound_IsAvailable()
 {
-	if(g_bSpecialRoundEnabled[g_iSpecialRoundId]) return false;
+	if(!g_bSpecialRoundEnabled[g_iSpecialRoundId]) return false;
 	
 	if (g_bSpecialRoundMultiplePlayersOnly[g_iSpecialRoundId])
 	{
