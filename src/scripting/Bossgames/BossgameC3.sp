@@ -1,13 +1,14 @@
 /**
  * MicroTF2 - Bossgame C3
  * 
- * Goal 7 Bombs
+ * Goal 10 Bombs
  */
 
 #define BC3_NUM 11
 #define BC3_SFX_GOAL "ui/hitsound_retro1.wav"
 
 int g_iBC3Points[MAXPLAYERS + 1];
+Handle g_hBC3HudSync;
 
 public void BC3_EntryPoint()
 {
@@ -17,6 +18,7 @@ public void BC3_EntryPoint()
 	g_pfOnEntityCreated.AddFunction(INVALID_HANDLE, BC3_OnEntityCreated);
 	
 	PrecacheSound(BC3_SFX_GOAL);
+	g_hBC3HudSync = CreateHudSynchronizer();
 }
 
 public void BC3_OnMinigameSelectedPre()
@@ -77,6 +79,9 @@ public void BC3_OnMinigameSelected(int client)
 	pos[0] = 5217.0 + ((measure-1) * 64);
 	
 	TeleportEntity(client, pos, ang, vel);
+	
+	SetHudTextParamsEx(-1.0, 0.25, 35.0, {255, 255, 255, 255}, {0, 0, 0, 0}, 2, 0.0, 0.0, 0.0);
+	ShowSyncHudText(player.ClientId, g_hBC3HudSync, "0 / 10");
 }
 
 public void BC3_OnEntityCreated(int entity, const char[] cls)
@@ -97,13 +102,37 @@ public void BC3_OnEntityCreated(int entity, const char[] cls)
 	}
 }
 
-/*public void BC3_OnMinigameFinish(int client)
+public void BC3_OnMinigameFinish(int client)
 {
+	if (g_iActiveBossgameId != BC3_NUM)
+	{
+		return;
+	}
+
+	if (!g_bIsMinigameActive)
+	{
+		return;
+	}
 	
-}*/
+	Player player = new Player(client);
+	if(!player.IsValid) return;
+	
+	SetHudTextParamsEx(-1.0, 0.25, 1.0, {0, 0, 0, 0}, {0, 0, 0, 0}, 2, 0.0, 0.0, 0.0);
+	ShowSyncHudText(client, g_hBC3HudSync, "");
+}
 
 public void BC3_PipeStartTouchPost(int entity, int other)
 {
+	if (g_iActiveBossgameId != BC3_NUM)
+	{
+		return;
+	}
+
+	if (!g_bIsMinigameActive)
+	{
+		return;
+	}
+	
 	char cls[16]; GetEntityClassname(other, cls, sizeof(cls));
 	if(StrEqual(cls, "func_button"))
 	{
@@ -114,7 +143,9 @@ public void BC3_PipeStartTouchPost(int entity, int other)
 		{
 			g_iBC3Points[player.ClientId]++;
 			EmitSoundToClient(player.ClientId, BC3_SFX_GOAL);
-			if(g_iBC3Points[player.ClientId] >= 5)
+			SetHudTextParamsEx(-1.0, 0.25, 35.0, {255, 255, 255, 255}, {0, 0, 0, 0}, 2, 0.0, 0.0, 0.0);
+			ShowSyncHudText(player.ClientId, g_hBC3HudSync, "%d / 10", g_iBC3Points[player.ClientId]);
+			if(g_iBC3Points[player.ClientId] >= 10)
 			{
 				player.TriggerSuccess();
 			}

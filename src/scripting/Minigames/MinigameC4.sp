@@ -76,6 +76,8 @@ public void MC4_OnMinigameSelectedPre()
 		pos[1] = -7664.0;
 		
 		EmitSoundToAll("weapons/rocket_shoot.wav", _, _, _, _, 0.78, _, _, pos);
+		
+		g_eDamageBlockMode = EDamageBlockMode_OtherPlayersOnly;
 	}
 }
 
@@ -96,7 +98,7 @@ public void MC4_OnMinigameSelected(int client)
 	if(player.IsValid)
 	{
 		player.Class = TFClass_Pyro;
-		player.SetGodMode(true);
+		player.SetGodMode(false);
 		player.ResetHealth();
 		player.RemoveAllWeapons();
 		player.GiveWeapon(21);
@@ -134,10 +136,7 @@ int &entity, int &channel, float &volume, int &level, int &pitch, int &flags, ch
 	if(StrContains(sample, "flame_thrower_airblast_rocket_redirect", false) != -1)
     {
 		Player player = new Player(GetEntPropEnt(entity, Prop_Data, "m_hOwnerEntity"));
-		if(player.IsValid && player.IsParticipating)
-		{
-			player.TriggerSuccess();
-		}
+		player.TriggerSuccess();
 	}
 	
 	return Plugin_Continue;
@@ -155,7 +154,7 @@ int MC4_SpawnRocket(const float[3] pos)
 		SetEntProp(rocket, Prop_Data, "m_nSkin", 0);
 		SetEntProp(rocket, Prop_Send, "m_bCritical", 1);
 		SetEntProp(rocket, Prop_Send, "m_iDeflected", 1);
-		SetEntDataFloat(rocket, FindSendPropInfo("CTFProjectile_Rocket", "m_iDeflected") + 4, 1.0, true);
+		SetEntDataFloat(rocket, FindSendPropInfo("CTFProjectile_Rocket", "m_iDeflected") + 4, 125.0, true);
 		
 		SetVariantInt(1);
 		AcceptEntityInput(rocket, "TeamNum", -1, -1, 0);

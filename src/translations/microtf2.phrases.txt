@@ -236,7 +236,7 @@
 	}
 	"Bossgame11_Caption"
 	{
-		"en"		"SCORE 5 GOALS!"
+		"en"		"SCORE 10 GOALS!"
 	}
 	"Minigame1_Caption"
 	{

@@ -208,7 +208,7 @@
 	}
 	"Bossgame11_Caption"
 	{
-		"ko"		"유탄을 5번 넣으세요!"
+		"ko"		"유탄을 10번 넣으세요!"
 	}
 	"Minigame1_Caption"
 	{

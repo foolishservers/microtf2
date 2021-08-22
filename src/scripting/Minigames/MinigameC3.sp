@@ -113,7 +113,7 @@ public Action MC3_TimerLoop(Handle timer)
 {
 	static int beat = 2;
 	
-	if(beat >= 5)
+	if(beat >= 3)
 	{
 		// rush!!
 		
