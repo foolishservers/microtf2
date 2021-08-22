@@ -67,7 +67,10 @@ public void MC2_OnMinigameSelected(int client)
 		player.ResetHealth();
 		player.ResetWeapon(false);
 		
-		float pos[3] = { -2239.0, 1855.0, -1082.0 };
+		float pos[3];
+		pos[0] = -2607.0;
+		pos[1] = player.Team == TFTeam_Red ? 2463.0 : 1135.0;
+		pos[2] = -1082.0;
 		float vel[3] = { 0.0, 0.0, 0.0 };
 		
 		TeleportEntity(client, pos, vel, vel);
@@ -112,7 +115,6 @@ public void MC2_OnMinigameFinish()
 		if (player.IsValid && player.IsParticipating)
 		{
 			player.Respawn();
-			SDKUnhook(i, SDKHook_OnTakeDamage, Minigame18_OnTakeDamage);
 		}
 	}
 	

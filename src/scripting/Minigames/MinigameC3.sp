@@ -163,6 +163,7 @@ public void MC3_OnGameFrame()
 		if(pos[1] > -6624.0 || pos[1] < -8704.0)
 		{
 			RemoveEntity(g_MC3Train1);
+			UnhookSingleEntityOutput(g_MC3Train1Mult, "OnStartTouch", MC3_OnStartTouch);
 			RemoveEntity(g_MC3Train1Mult);
 		}
 		else
@@ -177,6 +178,7 @@ public void MC3_OnGameFrame()
 		if(pos[0] > 1008.0 || pos[0] < -1072.0)
 		{
 			RemoveEntity(g_MC3Train2);
+			UnhookSingleEntityOutput(g_MC3Train2Mult, "OnStartTouch", MC3_OnStartTouch);
 			RemoveEntity(g_MC3Train2Mult);
 		}
 		else
