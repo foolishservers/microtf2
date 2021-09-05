@@ -47,6 +47,18 @@ public Action Timer_Respawn(Handle timer, int client)
 	return Plugin_Handled;
 }
 
+int GetNextAnnotationId()
+{
+	if (g_iAnnotationEventId > 999)
+	{
+		g_iAnnotationEventId = 0;
+	}
+
+	g_iAnnotationEventId++;
+
+	return g_iAnnotationEventId;
+}
+
 stock void ShowAnnotation(int client, int attachToEntity, float lifetime, char text[32])
 {
 	int bitfield = BuildBitStringExcludingClient(attachToEntity);
@@ -56,17 +68,14 @@ stock void ShowAnnotation(int client, int attachToEntity, float lifetime, char t
 
 stock void ShowAnnotationWithBitfield(int client, int attachToEntity, float lifetime, char text[32], int bitfield)
 {
-	Event event = CreateEvent("show_annotation");
+	Annotation annotation = new Annotation();
 
-	if (event == INVALID_HANDLE)
+	if (annotation == INVALID_HANDLE)
 	{
 		return;
 	}
 
-	if (g_iAnnotationEventId > 9999)
-	{
-		g_iAnnotationEventId = 0;
-	}
+	int id = GetNextAnnotationId();
 
 	if (g_iSpecialRoundId == 19)
 	{
@@ -75,21 +84,46 @@ stock void ShowAnnotationWithBitfield(int client, int attachToEntity, float life
 		strcopy(text, sizeof(text), rewritten);
 	}
 
-	//https://forums.alliedmods.net/showpost.php?p=1996379&postcount=14
-	event.SetInt("id", g_iAnnotationEventId);
-	event.SetInt("follow_entindex", attachToEntity);
-	event.SetFloat("lifetime", lifetime);
-	event.SetString("text", text);
-	event.SetString("play_sound", "misc/null.wav");
-	event.SetBool("show_effect", false);
-	event.SetInt("visibilityBitfield", bitfield);
-	event.FireToClient(client);
-	event.Cancel();	//Free the handle memory
-	
-	g_iAnnotationEventId++;
+	annotation.Id = id;
+	annotation.FollowEntity = attachToEntity;
+	annotation.Lifetime = lifetime;
+	annotation.ShowEffect = false;
+	annotation.SetText(text);
+	annotation.VisibilityBits = bitfield;
+	annotation.FireToClient(client);
+	annotation.Cancel();	//Free the handle memory
 }
 
-public int BuildBitStringExcludingClient(int client)
+stock void ShowPositionalAnnotation(int client, float[3] position, float lifetime, char text[32], bool showDistance)
+{
+	Annotation annotation = new Annotation();
+
+	if (annotation == INVALID_HANDLE)
+	{
+		return;
+	}
+
+	int id = GetNextAnnotationId();
+
+	if (g_iSpecialRoundId == 19)
+	{
+		char rewritten[32];
+		ReverseString(text, sizeof(text), rewritten);
+		strcopy(text, sizeof(text), rewritten);
+	}
+
+	annotation.Id = id;
+	annotation.Lifetime = lifetime;
+	annotation.ShowEffect = true;
+	annotation.ShowDistance = showDistance;
+	annotation.SetText(text);
+	annotation.SetPosition(position);
+	annotation.SetInvisibleForAllExcluding(client);
+	annotation.FireToClient(client);
+	annotation.Cancel();	//Free the handle memory
+}
+
+int BuildBitStringExcludingClient(int client)
 {
 	int bitfield = 0;
 
@@ -109,11 +143,6 @@ public int BuildBitStringExcludingClient(int client)
 	}
 
 	return bitfield;
-}
-
-public void AddClientToBitString(int bitfield, int client)
-{
-	bitfield |= (1 << client);
 }
 
 stock void RemoveAllStunballEntities()

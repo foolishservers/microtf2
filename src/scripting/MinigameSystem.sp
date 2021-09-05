@@ -17,6 +17,7 @@ int g_iMinigameMaximumParticipantCount[MAXIMUM_MINIGAMES];
 int g_iMinigameMinimumParticipantCount[MAXIMUM_MINIGAMES];
 
 bool g_bBossgameIsEnabled[MAXIMUM_MINIGAMES];
+bool g_bBossgameUsesCaption[MAXIMUM_MINIGAMES];
 char g_sBossgameDynamicCaptionFunctionName[MAXIMUM_MINIGAMES][64];
 bool g_bBossgameHasDynamicCaption[MAXIMUM_MINIGAMES];
 bool g_bBossgameBlockedSpecialRound[MAXIMUM_MINIGAMES][SPR_MAX];
@@ -254,6 +255,7 @@ public void LoadBossgameData()
 			kv.GetString("BackgroundMusic", g_sBossgameBgm[i], 128);
 
 			g_fBossgameBgmLength[i] = kv.GetFloat("Duration", 30.0);
+			g_bBossgameUsesCaption[i] = kv.GetNum("UsesCaption", 0) == 1;
 			g_bBossgameHasDynamicCaption[i] = kv.GetNum("CaptionIsDynamic", 0) == 1;
 
 			if (g_bBossgameHasDynamicCaption[i])
@@ -402,7 +404,7 @@ public void DoSelectBossgame()
 	int forcedBossgameId = g_hConVarPluginForceBossgame.IntValue;
 	int rollCount = 0;
 
-	if (forcedBossgameId > 0)
+	if (forcedBossgameId > 0 && forcedBossgameId <= g_iBossgamesLoadedCount)
 	{
 		g_iLastPlayedBossgameId = 0;
 		g_iActiveBossgameId = forcedBossgameId;

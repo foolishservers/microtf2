@@ -451,6 +451,7 @@ methodmap Player __nullable__
         this.RemoveCondition(TFCond_Bleeding);
         this.RemoveCondition(TFCond_RuneHaste);
         this.RemoveCondition(TFCond_CritCola);
+        this.RemoveCondition(TFCond_HalloweenCritCandy);
         this.RemoveCondition(TFCond_Taunting);
     }
 
@@ -706,6 +707,6 @@ methodmap Player __nullable__
 
     public void ResetWeapon(bool viewModel)
     {
-        Weapon_ResetToMelee(this.ClientId, viewModel);
+        Weapons_ResetToMelee(this.ClientId, viewModel);
     }
 }

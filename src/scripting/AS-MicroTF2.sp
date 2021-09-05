@@ -41,6 +41,7 @@
 #include "Forwards.sp"
 #include "Sounds.sp"
 #include "MethodMaps/Player.inc"
+#include "MethodMaps/Annotation.inc"
 #include "Weapons.sp"
 #include "Voices.sp"
 #include "ConVars.sp"
@@ -140,7 +141,10 @@ public void OnMapStart()
 	AddServerTag("microgames");
 	AddServerTag("micro games");
 
-	g_bIsPluginEnabled = IsWarioWareMap();
+	char map[32];
+	GetCurrentMap(map, sizeof(map));
+
+	g_bIsPluginEnabled = strncmp(PLUGIN_MAPPREFIX, map, strlen(PLUGIN_MAPPREFIX), false) == 0;
 
 	if (g_bIsPluginEnabled)
 	{
@@ -428,7 +432,7 @@ public Action Timer_GameLogic_StartMinigame(Handle timer)
 	Minigame minigame = new Minigame(g_iActiveMinigameId);
 	Bossgame bossgame = new Bossgame(g_iActiveBossgameId);
 
-	if (minigame.HasDynamicCaption || bossgame.HasDynamicCaption)
+	if (minigame.HasDynamicCaption || (bossgame.UsesCaption && bossgame.HasDynamicCaption))
 	{
 		char funcName[64];
 
@@ -457,7 +461,7 @@ public Action Timer_GameLogic_StartMinigame(Handle timer)
 		{
 			if (g_iActiveBossgameId > 0) 
 			{
-				if (dynamicCaptionFunction == INVALID_FUNCTION)
+				if (bossgame.UsesCaption && dynamicCaptionFunction == INVALID_FUNCTION)
 				{
 					char text[64];
 					char translationKey[32];
@@ -531,8 +535,12 @@ public Action Timer_GameLogic_StartMinigame(Handle timer)
 	else if (g_iActiveBossgameId > 0)
 	{
 		g_hActiveGameTimer = CreateTimer(bossgame.Duration, Timer_GameLogic_EndMinigame, _, TIMER_FLAG_NO_MAPCHANGE);
-		CreateTimer(10.0, Timer_RemoveBossOverlay, _, TIMER_FLAG_NO_MAPCHANGE);
 		g_hBossCheckTimer = CreateTimer(5.0, Timer_CheckBossEnd, _, TIMER_FLAG_NO_MAPCHANGE);
+
+		if (bossgame.UsesCaption)
+		{
+			CreateTimer(10.0, Timer_RemoveBossOverlay, _, TIMER_FLAG_NO_MAPCHANGE);
+		}
 	}
 	else
 	{
@@ -595,7 +603,6 @@ public Action Timer_GameLogic_EndMinigame(Handle timer)
 	g_bIsBlockingKillCommands = true;
 	g_bIsBlockingTaunts = false;
 	g_eDamageBlockMode = EDamageBlockMode_All;
-	g_bForceCalculationCritical = false;
 	g_bIsBlockingPlayerClassVoices = false;
 
 	for (int i = 1; i <= MaxClients; i++)
@@ -618,7 +625,11 @@ public Action Timer_GameLogic_EndMinigame(Handle timer)
 			if (player.Status == PlayerStatus_Failed || player.Status == PlayerStatus_NotWon)
 			{
 				PlaySoundToPlayer(i, g_sGamemodeThemeBgm[g_iActiveGamemodeId][SYSMUSIC_FAILURE][0]); 
-				PlayNegativeVoice(i);
+
+				if (g_bGamemodeThemeAllowVoices[g_iActiveGamemodeId])
+				{
+					PlayNegativeVoice(i);
+				}
 
 				bool showFailure = ((g_iSpecialRoundId == 17 && player.IsParticipating) || g_iSpecialRoundId != 17);
 
@@ -711,7 +722,11 @@ public Action Timer_GameLogic_EndMinigame(Handle timer)
 				}
 
 				PlaySoundToPlayer(i, g_sGamemodeThemeBgm[g_iActiveGamemodeId][SYSMUSIC_WINNER][0]);
-				PlayPositiveVoice(i);
+
+				if (g_bGamemodeThemeAllowVoices[g_iActiveGamemodeId])
+				{
+					PlayPositiveVoice(i);
+				}
 
 				if (player.IsUsingLegacyDirectX)
 				{
@@ -763,7 +778,11 @@ public Action Timer_GameLogic_EndMinigame(Handle timer)
 		else if (player.IsInGame && !player.IsBot && player.Team == TFTeam_Spectator)
 		{
 			PlaySoundToPlayer(i, g_sGamemodeThemeBgm[g_iActiveGamemodeId][SYSMUSIC_FAILURE][0]); 
-			PlayNegativeVoice(i);
+			
+			if (g_bGamemodeThemeAllowVoices[g_iActiveGamemodeId])
+			{
+				PlayNegativeVoice(i);
+			}
 
 			player.DisplayOverlay(OVERLAY_BLANK);
 		}
@@ -963,7 +982,6 @@ public Action Timer_GameLogic_GameOverStart(Handle timer)
 	PrintToChatAll("[DEBUG] GameOverStart");
 	#endif
 
-	g_bForceCalculationCritical = false;
 	g_bIsBlockingKillCommands = false;
 	g_bIsBlockingTaunts = false;
 	g_bIsBlockingPlayerClassVoices = false;

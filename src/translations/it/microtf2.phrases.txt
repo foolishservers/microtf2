@@ -185,13 +185,58 @@
 	{
 		"it"		"SPARA A PIU' BARILI CHE PUOI!"
 	}
-	"Bossgame7_Caption"
+	"Bossgame8_Caption_CountTheProps"
 	{
-		"it"		""
+		"it"		"CONTA GLI OGGETTI!"
 	}
-	"Bossgame8_Caption"
+	"Bossgame8_Caption_GetReady"
 	{
-		"it"		""
+		"it"		"PREPARATI..."
+	}
+	"Bossgame8_Caption_CorrectAnswerWas_Hidden"
+	{
+		"it"		"LA RISPOSTA ESATTA ERA...\n???"
+	}
+	"Bossgame8_Caption_CorrectAnswerWas_Visible"
+	{
+		"#format"		"{1:i}"
+		"it"		"LA RISPOSTA ESATTA ERA...\n{1}!"
+	}
+	"Bossgame8_Caption_ChooseARoom"
+	{
+		"#format"		"{1:s},{2:i},{3:i},{4:i},{5:i}"
+		"it"		"Quanti {1} c'erano? Entra nella stanza corrispondente alla risposta corretta!\nStanza A: {2}   Stanza B: {3}   Stanza C: {4}\nTempo rimasto: {5}"
+	}
+	"Bossgame8_PropType_Dispensers"
+	{
+		"it"		"Dispenser"
+	}
+	"Bossgame8_PropType_AmmoPacks"
+	{
+		"it"		"Pacchi di Munizioni"
+	}
+	"Bossgame8_PropType_Barrels"
+	{
+		"it"		"Barili"
+	}
+	"Bossgame8_PropType_Chairs"
+	{
+		"it"		"Sedie"
+	}
+	"Bossgame8_Annotation_AnswerRoomA"
+	{
+		"#format"		"{1:i}"
+		"it"		"Stanza A: {1}"
+	}
+	"Bossgame8_Annotation_AnswerRoomB"
+	{
+		"#format"		"{1:i}"
+		"it"		"Stanza B: {1}"
+	}
+	"Bossgame8_Annotation_AnswerRoomC"
+	{
+		"#format"		"{1:i}"
+		"it"		"Stanza C: {1}"
 	}
 	"Minigame1_Caption"
 	{
