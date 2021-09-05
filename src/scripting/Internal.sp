@@ -14,21 +14,6 @@ stock int FindEntityByClassname2(int startEntityId, const char[] classname)
 	return FindEntityByClassname(startEntityId, classname);
 }
 
-stock bool IsWarioWareMap()
-{
-	char map[32];
-	GetCurrentMap(map, sizeof(map));
-	
-	return strncmp(PLUGIN_MAPPREFIX, map, strlen(PLUGIN_MAPPREFIX), false) == 0;
-}
-
-stock void UnloadPlugin()
-{
-	char fileName[244];
-	GetPluginFilename(GetMyHandle(), fileName, sizeof(fileName));
-	ServerCommand("sm plugins unload %s", fileName);
-}
-
 stock int GetHighestScore()
 {
 	int threshold = 0;
@@ -80,10 +65,8 @@ stock int CalculateTeamScore(TFTeam team)
 	return threshold;
 }
 
-stock void EndGame()
+void EndGame()
 {
-	SetConVarInt(FindConVar("mp_timelimit"), 1);
-
 	int entity = FindEntityByClassname(-1, "game_end");
 
 	if (entity == -1)
@@ -121,7 +104,7 @@ stock int GetActivePlayers(int team = 0, bool mustbealive = false)
     return output;
 }
 
-stock void ResetGamemode()
+void ResetGamemode()
 {
 	g_eGamemodeStatus = GameStatus_WaitingForPlayers;
 
@@ -142,8 +125,7 @@ stock void ResetGamemode()
 
 	g_eDamageBlockMode = EDamageBlockMode_All;
 	g_bIsBlockingKillCommands = true;
-	g_bIsBlockingTaunts = false;
-	g_bForceCalculationCritical = false;
+	g_bIsBlockingTaunts = true;
 
 	SetTeamScore(view_as<int>(TFTeam_Red), 0);
 	SetTeamScore(view_as<int>(TFTeam_Blue), 0);
