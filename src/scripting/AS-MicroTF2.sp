@@ -1301,7 +1301,7 @@ public Action Timer_GameLogic_GameOverEnd(Handle timer)
 			isWaitingForVoteToFinish = true;
 		}
 
-		if (GetRandomInt(0, 2) == 1 || g_bForceSpecialRound)
+		/*if (GetRandomInt(0, 2) == 1 || g_bForceSpecialRound)
 		{
 			// Special Round
 			g_iActiveGamemodeId = SPR_GAMEMODEID;
@@ -1310,7 +1310,10 @@ public Action Timer_GameLogic_GameOverEnd(Handle timer)
 		{
 			// Back to normal - use themes.
 			g_iActiveGamemodeId = GetRandomInt(0, g_iLoadedGamemodeCount - 1);
-		}
+		}*/
+		// special mode every round
+		g_iActiveGamemodeId = SPR_GAMEMODEID;
+		g_iActiveGamemodeId = GetRandomInt(0, g_iLoadedGamemodeCount - 1);
 
 		PluginForward_SendGamemodeChanged(g_iActiveGamemodeId);
 		g_bHideHudGamemodeText = true;
