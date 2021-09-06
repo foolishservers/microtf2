@@ -1313,7 +1313,6 @@ public Action Timer_GameLogic_GameOverEnd(Handle timer)
 		}*/
 		// special mode every round
 		g_iActiveGamemodeId = SPR_GAMEMODEID;
-		g_iActiveGamemodeId = GetRandomInt(0, g_iLoadedGamemodeCount - 1);
 
 		PluginForward_SendGamemodeChanged(g_iActiveGamemodeId);
 		g_bHideHudGamemodeText = true;

@@ -8,8 +8,8 @@
 #define BOSSGAME8_ENTITYSPAWN_GROUPCOUNT 4
 
 #define BOSSGAME8_TIMER_VIEWING_TIME_MAX 5.0
-#define BOSSGAME8_TIMER_VIEWING_TIME_MIN 2.0
-#define BOSSGAME8_TIMER_VIEWING_TIME_DECAY 0.5
+#define BOSSGAME8_TIMER_VIEWING_TIME_MIN 1.5
+#define BOSSGAME8_TIMER_VIEWING_TIME_DECAY 0.7
 
 #define BOSSGAME8_TIMER_VIEWING_RESET -7
 
@@ -318,6 +318,7 @@ public Action Bossgame8_BeginViewing(Handle timer)
 	Bossgame8_SendHatchDoorOpen(true);
 
 	g_eBossgame8CurrentPhase = EBossgame8_Phase_Viewing;
+	Bossgame8_ShowHudQuestionnaire();
 
 	CreateTimer(g_fBossgame8ViewingTime, Bossgame8_EndViewingOpenAnswerRooms, _, TIMER_FLAG_NO_MAPCHANGE);
 
@@ -815,10 +816,9 @@ void Bossgame8_ShowHudQuestionnaire()
 				continue;
 			}
 
-
 			if (g_eBossgame8CurrentPhase == EBossgame8_Phase_Viewing)
 			{
-				char text[128];
+				char text[256];
 				Format(text, sizeof(text), "%T", "Bossgame8_Caption_CountTheProps", player.ClientId);
 				player.SetCaption(text);
 				continue;
