@@ -161,17 +161,13 @@
 	{
 		"ko"		""
 	}
-	"Bossgame8_Caption"
-	{
-		"ko"		""
-	}
 	"Bossgame8_Caption_CountTheProps"
 	{
-		"en"		"물건은 몇 개일까요?"
+		"en"		"물건은 몇 개?"
 	}
 	"Bossgame8_Caption_GetReady"
 	{
-		"en"		"준비!"
+		"en"		"준비..."
 	}
 	"Bossgame8_Caption_CorrectAnswerWas_Hidden"
 	{
@@ -180,12 +176,28 @@
 	"Bossgame8_Caption_CorrectAnswerWas_Visible"
 	{
 		"#format"		"{1:i}"
-		"en"		"정답은...\n{1}!"
+		"en"		"정답은...\n{1}개입니다!"
 	}
 	"Bossgame8_Caption_ChooseARoom"
 	{
 		"#format"		"{1:s},{2:i},{3:i},{4:i},{5:i}"
-		"en"		"{1}이(가) 몇개 있었을까요? 방을 골라 선택하세요!\nA: {2}   B: {3}   C: {4}\n남은 시간: {5}초"
+		"en"		"{1}는 몇 개 있었을까요? 맞는 정답을 골라주세요!\nA: {2}   B: {3}   C: {4}\n남은 시간: {5}"
+	}
+	"Bossgame8_PropType_Dispensers"
+	{
+		"en"		"디스펜서"
+	}
+	"Bossgame8_PropType_AmmoPacks"
+	{
+		"en"		"탄약"
+	}
+	"Bossgame8_PropType_Barrels"
+	{
+		"en"		"드럼통"
+	}
+	"Bossgame8_PropType_Chairs"
+	{
+		"en"		"의자"
 	}
 	"Bossgame8_Annotation_AnswerRoomA"
 	{

@@ -107,7 +107,7 @@
 	"11"
 	{
 		"Name"			"BasketBomb"
-		"Enabled"		"0"
+		"Enabled"		"1"
 		"Duration"		"33.0"
 		"BackgroundMusic"	"gemidyne/warioware/bosses/bgm/basketball.mp3"
 		"EntryPoint"		"BC3_EntryPoint"

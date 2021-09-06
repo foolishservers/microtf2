@@ -57,6 +57,10 @@
       {
         "path": "D:\\SOURCE_SDK\\SOURCEMOD_GIT\\microtf2\\assets\\microtf2_overlays",
         "intelligent": false
+      },
+      {
+        "path": "D:\\SteamLibrary\\steamapps\\common\\Team Fortress 2\\tf\\custom\\warioware_custom",
+        "intelligent": true
       }
     ]
   },
