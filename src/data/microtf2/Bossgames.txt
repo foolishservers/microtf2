@@ -86,6 +86,7 @@
 	}
 	"9"
 	{
+		"Name"			"Jump Rope"
 		"Enabled"		"1"
 		"Duration"		"70.1417"
 		"BackgroundMusic"	"gemidyne/warioware/bosses/bgm/jumprope.mp3"
@@ -95,6 +96,7 @@
 	}
 	"10"
 	{
+		"Name"			"Kart Race"
 		"Enabled"		"0"
 		"Duration"		"70.1417"
 		"BackgroundMusic"	"gemidyne/warioware/bosses/bgm/jumprope.mp3"
@@ -104,6 +106,7 @@
 	}
 	"11"
 	{
+		"Name"			"BasketBomb"
 		"Enabled"		"0"
 		"Duration"		"33.0"
 		"BackgroundMusic"	"gemidyne/warioware/bosses/bgm/basketball.mp3"
