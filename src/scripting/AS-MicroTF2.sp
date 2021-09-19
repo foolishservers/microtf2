@@ -20,7 +20,7 @@
 #define REQUIRE_EXTENSIONS
 
 #include <sdkhooks>
-#include <steamtools>
+#include <SteamWorks>
 #include <tf2items>
 #include <tf2attributes>
 
@@ -28,7 +28,7 @@
 
 //#define DEBUG
 //#define LOGGING_STARTUP
-#define PLUGIN_VERSION "5.0-dev (Foolish mod)"
+#define PLUGIN_VERSION "5.1.0 (Foolish mod)"
 #define PLUGIN_PREFIX "\x0700FFFF[ \x07FFFF00WarioWare \x0700FFFF] {default}"
 #define PLUGIN_MAPPREFIX "warioware_redux_"
 
@@ -89,9 +89,9 @@ public void OnPluginStart()
 		SetFailState("The TF2Items Extension is not loaded.");
 	}
 
-	if (GetExtensionFileStatus("steamtools.ext") < 1)
+	if (GetExtensionFileStatus("SteamWorks.ext") < 1)
 	{
-		SetFailState("The SteamTools Extension is not loaded.");
+		SetFailState("The SteamWorks Extension is not loaded.");
 	}
 
 	LoadTranslations("microtf2.phrases.txt");
@@ -165,8 +165,6 @@ public void OnMapStart()
 				AttachPlayerHooks(i);
 			}
 		}
-		
-		AddNormalSoundHook(OnSoundEmit);
 	}
 }
 
@@ -211,7 +209,7 @@ public Action Timer_GameLogic_EngineInitialisation(Handle timer)
 	g_bIsMinigameEnding = false;
 	g_bIsMapEnding = false;
 	g_bIsGameOver = false;
-	g_bIsBlockingTaunts = false;
+	g_bIsBlockingTaunts = true;
 	g_bIsBlockingKillCommands = true;
 	g_bIsBlockingPlayerClassVoices = false;
 	g_eDamageBlockMode = EDamageBlockMode_All;
@@ -601,7 +599,7 @@ public Action Timer_GameLogic_EndMinigame(Handle timer)
 	g_iActiveBossgameId = 0;
 
 	g_bIsBlockingKillCommands = true;
-	g_bIsBlockingTaunts = false;
+	g_bIsBlockingTaunts = true;
 	g_eDamageBlockMode = EDamageBlockMode_All;
 	g_bIsBlockingPlayerClassVoices = false;
 
@@ -988,6 +986,7 @@ public Action Timer_GameLogic_GameOverStart(Handle timer)
 	g_eDamageBlockMode = EDamageBlockMode_WinnersOnly;
 	g_bIsGameOver = true;
 	g_fActiveGameSpeed = 1.0;
+
 	SetSpeed();
 
 	g_hConVarTFFastBuild.BoolValue = true;
@@ -1277,7 +1276,7 @@ public Action Timer_GameLogic_GameOverEnd(Handle timer)
 	ResetPlayedGamePools();
 
 	g_bIsBlockingKillCommands = true;
-	g_bIsBlockingTaunts = false;
+	g_bIsBlockingTaunts = true;
 	g_bIsBlockingPlayerClassVoices = false;
 	g_eDamageBlockMode = EDamageBlockMode_All;
 
@@ -1301,7 +1300,7 @@ public Action Timer_GameLogic_GameOverEnd(Handle timer)
 			isWaitingForVoteToFinish = true;
 		}
 
-		/*if (GetRandomInt(0, 2) == 1 || g_bForceSpecialRound)
+		if (GetRandomInt(0, 2) == 1 || g_bForceSpecialRound)
 		{
 			// Special Round
 			g_iActiveGamemodeId = SPR_GAMEMODEID;
@@ -1310,9 +1309,7 @@ public Action Timer_GameLogic_GameOverEnd(Handle timer)
 		{
 			// Back to normal - use themes.
 			g_iActiveGamemodeId = GetRandomInt(0, g_iLoadedGamemodeCount - 1);
-		}*/
-		// special mode every round
-		g_iActiveGamemodeId = SPR_GAMEMODEID;
+		}
 
 		PluginForward_SendGamemodeChanged(g_iActiveGamemodeId);
 		g_bHideHudGamemodeText = true;

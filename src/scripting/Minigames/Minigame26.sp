@@ -138,6 +138,8 @@ public void Minigame26_OnMinigameSelected(int client)
 	{
 		return;
 	}
+	
+	g_bIsBlockingTaunts = true;
 
 	Player player = new Player(client);
 
