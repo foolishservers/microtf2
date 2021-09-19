@@ -1,0 +1,747 @@
+"Phrases"
+{
+	"System_Advertisement"
+	{
+		"#format"		"{1:s}"
+		"ko"		"와리오웨어 버전 {1} 에 오신 것을 환영합니다! 크레딧을 보려면 !credits 을 입력해주세요."
+	}
+	"Hud_Score_Default"
+	{
+		"#format"		"{1:i}"
+		"ko"		"점수:{1}"
+	}
+	"Hud_Score_Minigames"
+	{
+		"#format"		"{1:i}"
+		"ko"		"미니게임: {1}"
+	}
+	"Hud_Score_TeamScore"
+	{
+		"#format"		"{1:i}"
+		"ko"		"팀 점수: {1}"
+	}
+	"Hud_Score_Barrels"
+	{
+		"#format"		"{1:i}"
+		"ko"		"맞춘 나무통: {1}"
+	}
+	"Hud_RoundDisplay"
+	{
+		"#format"		"{1:i},{2:i}"
+		"ko"		"라운드 {1} 중 {2}"
+	}
+	"Hud_RoundDisplayUnlimited"
+	{
+		"#format"		"{1:i}"
+		"ko"		"라운드 {1}"
+	}
+	"Hud_ThemeDisplay"
+	{
+		"#format"		"{1:s}"
+		"ko"		"{1}의 테마곡"
+	}
+	"Hud_SpecialRound_CenterDisplay"
+	{
+		"#format"		"{1:s}"
+		"ko"		"스페셜 라운드: {1}!"
+	}
+	"Hud_SpecialRound_ChatDisplay"
+	{
+		"#format"		"{1:s},{2:s}"
+		"ko"		"이번 스페셜 라운드는... '{1}'\n설명: {2}"
+	}
+	"System_PlayerSpawn_RespawnNotice"
+	{
+		"ko"		"진행 중인 미니게임이나 보스게임이 끝나면 다시 살아날 것입니다."
+	}
+	"SpecialRound_SuddenDeath_PlayerKnockOutNotification"
+	{
+		"ko"		"당신은 실패하여 더 이상 참가할 수 없습니다!"
+	}
+	"System_SpecialRoundBlockClassChange"
+	{
+		"ko"		"이번 스페셜 라운드에서는 병과 변경이 허용되지 않습니다! 점수에 1점 추가되었습니다."
+	}
+	"General_Loser"
+	{
+		"ko"		"실패!"
+	}
+	"General_Winner"
+	{
+		"ko"		"성공!"
+	}
+	"GameOver_SpecialRoundHasFinished"
+	{
+		"ko"		"== 스페셜 라운드가 끝났습니다! =="
+	}
+	"GameOver_WinnerPrefixSingle"
+	{
+		"ko"		"축하합니다!"
+	}
+	"GameOver_WinnerPrefixMultiple"
+	{
+		"ko"		"축하합니다!"
+	}
+	"GameOver_WinnersAnd"
+	{
+		"#format"		"{1:s},{2:s}"
+		"ko"		"{1} 그리고 {2}{default}"
+	}
+	"GameOver_WinnerPrefixNoOne"
+	{
+		"ko"		"승자가 없습니다!"
+	}
+	"GameOver_WinnerSuffix"
+	{
+		"#format"		"{1:s},{2:s},{3:i}"
+		"en"		"{1} {2} {default}님이 {3} 점으로 이겼습니다!"
+	}
+	"GameOver_WinningTeam_Red"
+	{
+		"#format"		"{1:i}"
+		"ko"		"승리 팀은 {1}점을 획득한 RED 팀입니다!"
+	}
+	"GameOver_WinningTeam_Blue"
+	{
+		"#format"		"{1:i}"
+		"ko"		"승리 팀은 {1}점을 획득한 BLU 팀입니다!"
+	}
+	"GameOver_WinningTeam_Stalemate"
+	{
+		"ko"		"무승부! 양 팀의 점수가 같습니다!"
+	}
+	"System_Intermission_Header"
+	{
+		"ko"		"쉬는 시간!"
+	}
+	"System_Intermission_Body"
+	{
+		"ko"		"휴식 시간! 다음 맵을 투표할 시간입니다."
+	}
+	"Bossgame1_Caption"
+	{
+		"ko"		"꼭대기까지 로켓 점프하세요!"
+	}
+	"Bossgame1_PlayerReachedEndFirst"
+	{
+		"#format"		"{1:s}"
+		"ko"		"{1}님이 맨 위에 먼저 도달했습니다!(보너스 점수!)"
+	}
+	"Bossgame2_Caption"
+	{
+		"ko"		"공장을 탈출하세요!"
+	}
+	"Bossgame2_PlayerReachedEndFirst"
+	{
+		"#format"		"{1:s}"
+		"ko"		"{1}님이 공장에서 가장 먼저 탈출했습니다! (보너스 점수!)"
+	}
+	"Bossgame3_Caption"
+	{
+		"ko"		"초록 블럭으로 가세요!"
+	}
+	"Bossgame4_Caption"
+	{
+		"ko"		"물에 빠지지 마세요!"
+	}
+	"Bossgame5_Caption"
+	{
+		"ko"		"도착지점까지 가세요!"
+	}
+	"Bossgame5_PlayerReachedEndFirst"
+	{
+		"#format"		"{1:s}"
+		"ko"		"{1}님이 먼저 도착했습니다!(보너스 점수!)"
+	}
+	"Bossgame6_Caption"
+	{
+		"ko"		"나무통을 최대한 많이 쏘세요!"
+	}
+	"Bossgame7_Caption"
+	{
+		"ko"		""
+	}
+	"Bossgame8_Caption_CountTheProps"
+	{
+		"en"		"물건은 몇 개?"
+	}
+	"Bossgame8_Caption_GetReady"
+	{
+		"en"		"준비..."
+	}
+	"Bossgame8_Caption_CorrectAnswerWas_Hidden"
+	{
+		"en"		"정답은...\n???"
+	}
+	"Bossgame8_Caption_CorrectAnswerWas_Visible"
+	{
+		"#format"		"{1:i}"
+		"en"		"정답은...\n{1}개입니다!"
+	}
+	"Bossgame8_Caption_ChooseARoom"
+	{
+		"#format"		"{1:s},{2:i},{3:i},{4:i},{5:i}"
+		"en"		"{1}는 몇 개 있었을까요? 맞는 정답을 골라주세요!\nA: {2}   B: {3}   C: {4}\n남은 시간: {5}"
+	}
+	"Bossgame8_PropType_Dispensers"
+	{
+		"en"		"디스펜서"
+	}
+	"Bossgame8_PropType_AmmoPacks"
+	{
+		"en"		"탄약"
+	}
+	"Bossgame8_PropType_Barrels"
+	{
+		"en"		"드럼통"
+	}
+	"Bossgame8_PropType_Chairs"
+	{
+		"en"		"의자"
+	}
+	"Bossgame8_Annotation_AnswerRoomA"
+	{
+		"#format"		"{1:i}"
+		"en"		"A: {1}"
+	}
+	"Bossgame8_Annotation_AnswerRoomB"
+	{
+		"#format"		"{1:i}"
+		"en"		"B: {1}"
+	}
+	"Bossgame8_Annotation_AnswerRoomC"
+	{
+		"#format"		"{1:i}"
+		"en"		"C: {1}"
+	}
+	"Bossgame9_Caption"
+	{
+		"ko"		"줄넘기 하세요!"
+	}
+	"Bossgame11_Caption"
+	{
+		"ko"		"유탄을 10번 넣으세요!"
+	}
+	"Minigame1_Caption"
+	{
+		"ko"		"끝에 도달하세요!"
+	}
+	"Minigame2_Caption"
+	{
+		"ko"		"적을 죽이세요!"
+	}
+	"Minigame3_Caption"
+	{
+		"ko"		"나무통을 부수세요!"
+	}
+	"Minigame4_Caption"
+	{
+		"ko"		"상대를 밀어내고 살아남으세요!"
+	}
+	"Minigame5_Caption"
+	{
+		"ko"		"점착 점프하세요!"
+	}
+	"Minigame6_SayTheWord_CaptionFormatted"
+	{
+		"#format"		"{1:s}"
+		"ko"		"아래의 단어를 입력하세요!\n{1}"
+	}
+	"Minigame6_SayTheWord_PlayerSaidWordFirst"
+	{
+		"#format"		"{1:s}"
+		"ko"		"{1}님이 먼저 입력했습니다! (보너스 점수!)"
+	}
+	"Minigame7_Caption"
+	{
+		"ko"		"로켓 점프하세요!"
+	}
+	"Minigame8_CaptionFormatted"
+	{
+		"#format"		"{1:s}"
+		"ko"		"문제!\n{1} = ?"
+	}
+	"Minigame8_CorrectAnswerWas"
+	{
+		"#format"		"{1:i}"
+		"ko"		"정답은 {1}입니다!"
+	}
+	"Minigame8_PlayerAnsweredFirst"
+	{
+		"#format"		"{1:s}"
+		"ko"		"{1}님이 먼저 정답을 맞혔습니다!(보너스 점수!)"
+	}
+	"Minigame9_Caption_SimonSaysTaunt"
+	{
+		"ko"		"주인님이 말하길, 도발해!"
+	}
+	"Minigame9_Caption_SimonSaysJump"
+	{
+		"ko"		"주인님이 말하길, 점프해!"
+	}
+	"Minigame9_Caption_SimonSaysCrouch"
+	{
+		"ko"		"주인님이 말하길, 앉아!"
+	}
+	"Minigame9_Caption_SomeoneSaysTaunt"
+	{
+		"ko"		"춘식이가 말하길, 도발해!"
+	}
+	"Minigame9_Caption_SomeoneSaysJump"
+	{
+		"ko"		"춘식이가 말하길, 점프해!"
+	}
+	"Minigame9_Caption_SomeoneSaysCrouch"
+	{
+		"ko"		"춘식이가 말하길, 앉아!"
+	}
+	"Minigame9_Caption_SimonDidntSayIt"
+	{
+		"ko"		"(주인님이 말한 게 아니야!)"
+	}
+	"Minigame10_KamikazeIsHere"
+	{
+		"ko"		"여기서 멀어져!"
+	}
+	"Minigame10_Caption_ExplodeAsMany"
+	{
+		"ko"		"최대한 많은 사람을 폭발시키세요!"
+	}
+	"Minigame10_Caption_RunFromKamikaze"
+	{
+		"ko"		"센트리버스터로부터 도망치세요!"
+	}
+	"Minigame11_Caption_DontStopMoving"
+	{
+		"ko"		"움직이세요!"
+	}
+	"Minigame11_Caption_DontMove"
+	{
+		"ko"		"움직이지마!"
+	}
+	"Minigame12_Caption"
+	{
+		"ko"		"블럭 위에 올라타세요!"
+	}
+	"Minigame13_Caption"
+	{
+		"ko"		"스파이크랩을 하세요!"
+	}
+	"Minigame13_SpycrabsMustCrouchAndLookup"
+	{
+		"ko"		"스파이크랩은 앉고 위를 봐야 해요!"
+	}
+	"Minigame14_Caption_Spies"
+	{
+		"ko"		"구조물에 전자 교란기를 부착하세요!"
+	}
+	"Minigame14_Caption_Engineers"
+	{
+		"ko"		"구조물에 전자 교란기가 부착되어야 해요!"
+	}
+	"Minigame15_Caption_Any"
+	{
+		"ko"		"아무거나 건설하세요!"
+	}
+	"Minigame15_Caption_Dispenser"
+	{
+		"ko"		"디스펜서를 건설하세요!"
+	}
+	"Minigame15_Caption_Teleporter"
+	{
+		"ko"		"텔레포트를 건설하세요!"
+	}
+	"Minigame15_Caption_Sentry"
+	{
+		"ko"		"센트리를 건설하세요!"
+	}
+	"Minigame16_Caption"
+	{
+		"ko"		"자라테를 적에게 묻히세요!"
+	}
+	"Minigame17_Caption_HitAHeavy"
+	{
+		"ko"		"헤비를 맞추세요!"
+	}
+	"Minigame17_Caption_GetHitByMedic"
+	{
+		"ko"		"메딕에게 맞으세요!"
+	}
+	"Minigame18_Caption"
+	{
+		"ko"		"표적을 맞추세요!"
+	}
+	"Minigame19_Caption_ChangeClassAny"
+	{
+		"ko"		"병과를 바꾸세요!"
+	}
+	"Minigame19_Caption_ChangeClassScout"
+	{
+		"ko"		"스카웃으로 변경하세요!"
+	}
+	"Minigame19_Caption_ChangeClassSoldier"
+	{
+		"ko"		"솔져로 변경하세요!"
+	}
+	"Minigame19_Caption_ChangeClassPyro"
+	{
+		"ko"		"파이로로 변경하세요!"
+	}
+	"Minigame19_Caption_ChangeClassDemoman"
+	{
+		"ko"		"데모맨으로 변경하세요!"
+	}
+	"Minigame19_Caption_ChangeClassHeavy"
+	{
+		"ko"		"헤비로 변경하세요!"
+	}
+	"Minigame19_Caption_ChangeClassEngineer"
+	{
+		"ko"		"엔지니어로 변경하세요!"
+	}
+	"Minigame19_Caption_ChangeClassMedic"
+	{
+		"ko"		"메딕으로 변경하세요!"
+	}
+	"Minigame19_Caption_ChangeClassSniper"
+	{
+		"ko"		"스나이퍼로 변경하세요!"
+	}
+	"Minigame19_Caption_ChangeClassSpy"
+	{
+		"ko"		"스파이으로 변경하세요!"
+	}
+	"Minigame20_Caption_Drink"
+	{
+		"ko"		"마시세요!"
+	}
+	"Minigame20_Caption_DontDrink"
+	{
+		"ko"		"마시지마!"
+	}
+	"Minigame20_Caption_Eat"
+	{
+		"ko"		"먹으세요!"
+	}
+	"Minigame20_Caption_DontEat"
+	{
+		"ko"		"먹지마요!"
+	}
+	"Minigame21_Caption"
+	{
+		"ko"		"적을 공으로 맞춰 기절시키세요!"
+	}
+	"Minigame22_Caption"
+	{
+		"ko"		"땅에 붙어있으세요!"
+	}
+	"Minigame23_Caption"
+	{
+		"ko"		"더블 점프하세요!"
+	}
+	"Minigame24_Caption"
+	{
+		"ko"		"주사기 점프하세요!"
+	}
+	"Minigame25_Caption"
+	{
+		"ko"		"제트팩으로 하늘 위로 올라가세요!"
+	}
+	"Minigame26_Caption_DontLaugh"
+	{
+		"ko"		"헤비한테 맞지 마세요!"
+	}
+	"Minigame26_Caption_MakeThemLaugh_Scout"
+	{
+		"ko"		"스카웃을 웃기세요!"
+	}
+	"Minigame26_Caption_MakeThemLaugh_Soldier"
+	{
+		"ko"		"솔져를 웃기세요!"
+	}
+	"Minigame26_Caption_MakeThemLaugh_Pyro"
+	{
+		"ko"		"파이로를 웃기세요!"
+	}
+	"Minigame26_Caption_MakeThemLaugh_Demoman"
+	{
+		"ko"		"데모맨을 웃기세요!"
+	}
+	"Minigame26_Caption_MakeThemLaugh_Engineer"
+	{
+		"ko"		"엔지니어를 웃기세요!"
+	}
+	"Minigame26_Caption_MakeThemLaugh_Medic"
+	{
+		"ko"		"메딕을 웃기세요!"
+	}
+	"Minigame26_Caption_MakeThemLaugh_Sniper"
+	{
+		"ko"		"스나이퍼를 웃기세요!"
+	}
+	"Minigame26_Caption_MakeThemLaugh_Spy"
+	{
+		"ko"		"스파이를 웃기세요!"
+	}
+	"Minigame27_Caption"
+	{
+		"ko"		"적을 맞추세요!"
+	}
+	"Minigame28_Caption"
+	{
+		"ko"		"유탄 점프하세요!"
+	}
+	"Minigame29_Caption"
+	{
+		"ko"		"아무한테도 닿지 마세요!"
+	}
+	"Minigame31_Caption"
+	{
+		"ko"		"방 하나를 선택하세요!"
+	}
+	"Minigame32_Caption"
+	{
+		"ko"		"기차를 피하세요!"
+	}
+	"Minigame33_Caption"
+	{
+		"ko"		"로켓을 반사하세요!"
+	}
+	"Bossgame7_Caption_Explain"
+	{
+		"ko"		"화면에 나오는 단어를 최대한 빨리 입력하세요!"
+	}
+	"Bossgame7_Caption_Start"
+	{
+		"ko"		"시작!"
+	}
+	"Bossgame7_Caption_TimeRemaining"
+	{
+		"#format"		"{1:i}"
+		"ko"		"== 관전 중 ==\n\nTime 남은 시간: {1}초"
+	}
+	"Bossgame7_Caption_SayTheWord"
+	{
+		"#format"		"{1:s},{2:s},{3:i}"
+		"ko"		"== 아래의 단어를 입력하세요! ==\n\n{1}\n\n다음 단어: {2}\nTime 남은 시간: {3}초"
+	}
+	"Bossgame7_Caption_WinnerAnnouncement"
+	{
+		"#format"		"{1:s}"
+		"ko"		"== 주목! ==\n\n승자는...\n{1}!"
+	}
+	"Bossgame7_Caption_LevelUpAnnouncement"
+	{
+		"ko"		"== 주목! ==\n\n난이도 증가! 단어들이 더 어려워집니다!"
+	}
+	"Bossgame7_Caption_RoundReview"
+	{
+		"#format"		"{1:s}"
+		"ko"		"==라운드 결과==\n\n단어를 가장 적게 말한 플레이어는...\n{1}"
+	}
+	"Bossgame7_Caption_RoundReview_AndMore"
+	{
+		"#format"		"{1:s},{2:i}"
+		"ko"		"{1}\n그리고 {2} 기타 등등..."
+	}
+	"Bossgame7_Caption_RoundReview_EveryoneSurvives"
+	{
+		"#format"		"{1:s}"
+		"ko"		"{1}꼴찌가 없습니다!\n\n모든 생존자는 라운드를 한 번 더 진행해야 합니다!"
+	}
+	"Bossgame7_ClassChangeWarning"
+	{
+		"ko"		"보스게임 진행 중에는 병과 변경이 불가능합니다!"
+	}
+	"SpecialRound0_Name"
+	{
+		"ko"		"3인칭 고정"
+	}
+	"SpecialRound0_Description"
+	{
+		"ko"		"3인칭 시점 고정!"
+	}
+	"SpecialRound1_Name"
+	{
+		"ko"		"업 앤 다운"
+	}
+	"SpecialRound1_Description"
+	{
+		"ko"		"속도가 팍~ 올라갔다가 확~ 내려갔다가"
+	}
+	"SpecialRound2_Name"
+	{
+		"ko"		"미니게임 30개"
+	}
+	"SpecialRound2_Description"
+	{
+		"ko"		"미니게임이 30개로 증가!"
+	}
+	"SpecialRound3_Name"
+	{
+		"ko"		"낮은 중력"
+	}
+	"SpecialRound3_Description"
+	{
+		"ko"		"중력 차이가 너무 빠르게 나니까 그만..."
+	}
+	"SpecialRound4_Name"
+	{
+		"ko"		"속도 고정"
+	}
+	"SpecialRound4_Description"
+	{
+		"ko"		"미니게임 속도 고정!"
+	}
+	"SpecialRound5_Name"
+	{
+		"ko"		"게임 당 속도 증가"
+	}
+	"SpecialRound5_Description"
+	{
+		"ko"		"한 미니게임 당 속도가 더 빨라집니다!"
+	}
+	"SpecialRound6_Name"
+	{
+		"ko"		"게임 당 랜덤 속도"
+	}
+	"SpecialRound6_Description"
+	{
+		"ko"		"용병이~ 좋아하는~ 랜덤~ 속도!"
+	}
+	"SpecialRound7_Name"
+	{
+		"ko"		"게임 당 속도 감소"
+	}
+	"SpecialRound7_Description"
+	{
+		"ko"		"한 미니게임 당 라운드 속도가 느려집니다!"
+	}
+	"SpecialRound8_Name"
+	{
+		"ko"		"수학 ONLY"
+	}
+	"SpecialRound8_Description"
+	{
+		"ko"		"이과만 살아남는다."
+	}
+	"SpecialRound9_Name"
+	{
+		"ko"		"점수가 낮으면 승리"
+	}
+	"SpecialRound9_Description"
+	{
+		"ko"		"못하는 것이 잘하는 것"
+	}
+	"SpecialRound10_Name"
+	{
+		"ko"		"보스게임 두개"
+	}
+	"SpecialRound10_Description"
+	{
+		"ko"		"보스게임 두개!"
+	}
+	"SpecialRound11_Name"
+	{
+		"ko"		"팀전"
+	}
+	"SpecialRound11_Description"
+	{
+		"ko"		"니 팀 버려!? 니 팀 버려!?"
+	}
+	"SpecialRound12_Name"
+	{
+		"ko"		"싱글 플레이"
+	}
+	"SpecialRound12_Description"
+	{
+		"ko"		"나 혼자 한다"
+	}
+	"SpecialRound13_Name"
+	{
+		"ko"		"와! 샌즈!"
+	}
+	"SpecialRound13_Description"
+	{
+		"ko"		"이번 라운드동안 스켈레톤이 됩니다!"
+	}
+	"SpecialRound14_Name"
+	{
+		"ko"		"소인 모드"
+	}
+	"SpecialRound14_Description"
+	{
+		"ko"		"모든 사람이 쬐끄매집니다!"
+	}
+	"SpecialRound15_Name"
+	{
+		"ko"		"대두 모드"
+	}
+	"SpecialRound15_Description"
+	{
+		"ko"		"모두들 대두가 됩니다!"
+	}
+	"SpecialRound16_Name"
+	{
+		"ko"		"랜덤 점수"
+	}
+	"SpecialRound16_Description"
+	{
+		"ko"		"미니게임에서 이길시 점수가 무작위로 주어집니다!"
+	}
+	"SpecialRound16_Caption_Points"
+	{
+		"#format"		"{1:i}"
+		"ko"		"성공 시 {1}점을 얻습니다!"
+	}
+	"SpecialRound17_Name"
+	{
+		"ko"		"실패 시 탈락"
+	}
+	"SpecialRound17_Description"
+	{
+		"ko"		"미니게임 서바이벌이다!"
+	}
+	"SpecialRound17_Caption_Full"
+	{
+		"#format"		"{1:i},{2:i},{3:s}"
+		"ko"		"현재 플레이어 ({1} 중 {2})\n{3}"
+	}
+	"SpecialRound17_Caption_AndMore"
+	{
+		"#format"		"{1:s},{2:i}"
+		"ko"		"{1} (그리고 {2} 기타 등등)"
+	}
+	"SpecialRound18_Name"
+	{
+		"ko"		"실패시 0점"
+	}
+	"SpecialRound18_Description"
+	{
+		"ko"		"미니게임에서 한번이라도 질 경우 모든 점수를 잃습니다!"
+	}
+	"SpecialRound19_Name"
+	{
+		"ko"		"로꾸거 모드"
+	}
+	"SpecialRound19_Description"
+	{
+		"ko"		"!다니습있어되 로대반 가어단 임게니미 든모"
+	}
+	"SpecialRound20_Name"
+	{
+		"ko"		"논스톱 모드"
+	}
+	"SpecialRound20_Description"
+	{
+		"ko"		"이번 라운드에서 쉬는시간 따윈 없어요!"
+	}
+	"SpecialRound21_Name"
+	{
+		"ko"		"똥컴 모드"
+	}
+	"SpecialRound21_Description"
+	{
+		"ko"		"이봐! 당신 모습이 왜그래?"
+	}
+}

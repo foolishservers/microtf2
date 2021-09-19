@@ -17,13 +17,11 @@ stock void DisplayOverlayToAll(const char[] path)
 	}
 }
 
-
-
 stock void PlaySoundToPlayer(int client, const char[] sound)
 {
 	Player player = new Player(client);
 
-	if (player.IsInGame && !player.IsBot && !IsMapEnding)
+	if (player.IsInGame && !player.IsBot && !g_bIsMapEnding)
 	{
 		EmitSoundToClient(client, sound, SOUND_FROM_PLAYER, SNDCHAN_AUTO, SNDLEVEL_NORMAL, SND_NOFLAGS, SNDVOL_NORMAL, GetSoundMultiplier());
 	}
@@ -49,32 +47,16 @@ public Action Timer_Respawn(Handle timer, int client)
 	return Plugin_Handled;
 }
 
-stock void ClientWonMinigame(int client)
+int GetNextAnnotationId()
 {
-	Player player = new Player(client);
-
-	if (player.IsValid && player.IsParticipating && player.Status == PlayerStatus_NotWon)
+	if (g_iAnnotationEventId > 999)
 	{
-		player.Status = PlayerStatus_Winner;
-
-		if (ActiveParticipantCount > 12)
-		{
-			EmitSoundToClient(client, SYSFX_WINNER, SOUND_FROM_PLAYER, SNDCHAN_AUTO, SNDLEVEL_NORMAL, SND_NOFLAGS, SNDVOL_NORMAL, GetSoundMultiplier());
-		}
-		else
-		{
-			EmitSoundToAll(SYSFX_WINNER, SOUND_FROM_PLAYER, SNDCHAN_AUTO, SNDLEVEL_NORMAL, SND_NOFLAGS, SNDVOL_NORMAL, GetSoundMultiplier());
-		}
-
-		if (player.Team == TFTeam_Blue)
-		{
-			CreateParticle(client, "Micro_Win_Blue", 6.0);
-		}
-		else if (player.Team == TFTeam_Red)
-		{
-			CreateParticle(client, "Micro_Win_Red", 6.0);
-		}
+		g_iAnnotationEventId = 0;
 	}
+
+	g_iAnnotationEventId++;
+
+	return g_iAnnotationEventId;
 }
 
 stock void ShowAnnotation(int client, int attachToEntity, float lifetime, char text[32])
@@ -86,40 +68,62 @@ stock void ShowAnnotation(int client, int attachToEntity, float lifetime, char t
 
 stock void ShowAnnotationWithBitfield(int client, int attachToEntity, float lifetime, char text[32], int bitfield)
 {
-	Event event = CreateEvent("show_annotation");
+	Annotation annotation = new Annotation();
 
-	if (event == INVALID_HANDLE)
+	if (annotation == INVALID_HANDLE)
 	{
 		return;
 	}
 
-	if (g_iAnnotationEventId > 9999)
-	{
-		g_iAnnotationEventId = 0;
-	}
+	int id = GetNextAnnotationId();
 
-	if (SpecialRoundID == 19)
+	if (g_iSpecialRoundId == 19)
 	{
 		char rewritten[32];
 		ReverseString(text, sizeof(text), rewritten);
 		strcopy(text, sizeof(text), rewritten);
 	}
 
-	//https://forums.alliedmods.net/showpost.php?p=1996379&postcount=14
-	event.SetInt("id", g_iAnnotationEventId);
-	event.SetInt("follow_entindex", attachToEntity);
-	event.SetFloat("lifetime", lifetime);
-	event.SetString("text", text);
-	event.SetString("play_sound", "misc/null.wav");
-	event.SetBool("show_effect", false);
-	event.SetInt("visibilityBitfield", bitfield);
-	event.FireToClient(client);
-	event.Cancel();	//Free the handle memory
-	
-	g_iAnnotationEventId++;
+	annotation.Id = id;
+	annotation.FollowEntity = attachToEntity;
+	annotation.Lifetime = lifetime;
+	annotation.ShowEffect = false;
+	annotation.SetText(text);
+	annotation.VisibilityBits = bitfield;
+	annotation.FireToClient(client);
+	annotation.Cancel();	//Free the handle memory
 }
 
-public int BuildBitStringExcludingClient(int client)
+stock void ShowPositionalAnnotation(int client, float[3] position, float lifetime, char text[32], bool showDistance)
+{
+	Annotation annotation = new Annotation();
+
+	if (annotation == INVALID_HANDLE)
+	{
+		return;
+	}
+
+	int id = GetNextAnnotationId();
+
+	if (g_iSpecialRoundId == 19)
+	{
+		char rewritten[32];
+		ReverseString(text, sizeof(text), rewritten);
+		strcopy(text, sizeof(text), rewritten);
+	}
+
+	annotation.Id = id;
+	annotation.Lifetime = lifetime;
+	annotation.ShowEffect = true;
+	annotation.ShowDistance = showDistance;
+	annotation.SetText(text);
+	annotation.SetPosition(position);
+	annotation.SetInvisibleForAllExcluding(client);
+	annotation.FireToClient(client);
+	annotation.Cancel();	//Free the handle memory
+}
+
+int BuildBitStringExcludingClient(int client)
 {
 	int bitfield = 0;
 
@@ -139,11 +143,6 @@ public int BuildBitStringExcludingClient(int client)
 	}
 
 	return bitfield;
-}
-
-public void AddClientToBitString(int bitfield, int client)
-{
-	bitfield |= (1 << client);
 }
 
 stock void RemoveAllStunballEntities()
@@ -183,9 +182,8 @@ stock void ToUpperString(const char[] input, char[] output, int size)
 stock void ReverseString(const char[] input, int inputSize, char[] output)
 {
 	int rc = 0;
-	int len = inputSize;
 
-	for (int c = len - 1; c >= 0; c--)
+	for (int c = inputSize - 1; c >= 0; c--)
 	{
 		if (input[c] == '\0')
 		{
@@ -193,6 +191,7 @@ stock void ReverseString(const char[] input, int inputSize, char[] output)
 		}
 
 		// Thanks to whysodrooled for these Unicode reversal fixes (#199)
+		// you're welcome :)
 
 		if (c >= 1 && (input[c-1] & 0xC0 == 0xC0)) // 2 bytes
 		{
@@ -212,6 +211,15 @@ stock void ReverseString(const char[] input, int inputSize, char[] output)
 			}
 			c -= 2;
 		}
+		else if (c >= 3 && (input[c-3] & 0xF0 == 0xF0)) // 4 bytes
+		{
+			for (int j = 0; j < 4; j++)
+			{
+				output[rc] = input[c-3+j];
+				rc++;
+			}
+			c -= 3;
+		}
 		else
 		{
 			output[rc] = input[c];
@@ -220,12 +228,9 @@ stock void ReverseString(const char[] input, int inputSize, char[] output)
 	}
 }
 
-stock bool IsStringInt(const char arg[64])
+stock bool IsStringInt(const char[] arg)
 {
-    if (StringToInt(arg) != 0) return true;
-    if (StrEqual(arg, "0")) return true;
-	
-    return false;
+	return StringToInt(arg) != 0 || StrEqual(arg, "0");
 }
 
 public int GetClientAimEntity3(int client, float &distancetoentity, float endpos[3])	//Snippet by Javalia
@@ -298,4 +303,18 @@ stock int GetRandomParticipatingPlayerId()
 	}
 
 	return -1;
+}
+
+stock int GetEntityByName(const char[] name, const char[] classname)
+{
+	int ret = -1;
+	while((ret = FindEntityByClassname(ret, classname)) != -1)
+	{
+		char entityName[64];
+		GetEntPropString(ret, Prop_Data, "m_iName", entityName, sizeof(entityName));
+		
+		if(StrEqual(entityName, name)) break;
+	}
+	
+	return ret;
 }
