@@ -61,6 +61,11 @@ public Action Hooks_OnTakeDamage(int victim, int &attackerId, int &inflictor, fl
 			doBlock = true;
 		}
 	}
+	
+	// custom: block the damage from eliminated players for sp17
+	Player player = new Player(attackerId);
+	if(g_iSpecialRoundId == 17 && !player.IsParticipating)
+		doBlock = true;
 
 	if (doBlock)
 	{
