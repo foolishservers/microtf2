@@ -113,8 +113,24 @@ public Action Hook_GameSound(int clients[64], int &numClients, char sample[PLATF
 		pitch = GetSoundMultiplier();
 		return Plugin_Changed;
 	}
-
-	return Plugin_Continue;
+	
+	Action result;
+	
+	Call_StartForward(g_pfOnSoundEmit);
+	Call_PushArray(clients, MAXPLAYERS);
+	Call_PushCellRef(numClients);
+	Call_PushString(sample);
+	Call_PushCellRef(entity);
+	Call_PushCellRef(channel);
+	Call_PushFloatRef(volume);
+	Call_PushCellRef(level);
+	Call_PushCellRef(pitch);
+	Call_PushCellRef(flags);
+	Call_PushString(soundEntry);
+	Call_PushCellRef(seed);
+	Call_Finish(result);
+	
+	return result;
 }
 
 void Sounds_ConvertTokens(const char[] path, char[] output, int size)

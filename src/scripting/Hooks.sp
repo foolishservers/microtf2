@@ -104,25 +104,3 @@ public Action Hooks_OnTouch(int entity, int other)
 		}
 	}
 }
-
-public Action OnSoundEmit(int clients[MAXPLAYERS], int &numClients, char sample[PLATFORM_MAX_PATH],
-int &entity, int &channel, float &volume, int &level, int &pitch, int &flags, char soundEntry[PLATFORM_MAX_PATH], int &seed)
-{
-	Action result;
-	
-	Call_StartForward(g_pfOnSoundEmit);
-	Call_PushArray(clients, MAXPLAYERS);
-	Call_PushCellRef(numClients);
-	Call_PushString(sample);
-	Call_PushCellRef(entity);
-	Call_PushCellRef(channel);
-	Call_PushFloatRef(volume);
-	Call_PushCellRef(level);
-	Call_PushCellRef(pitch);
-	Call_PushCellRef(flags);
-	Call_PushString(soundEntry);
-	Call_PushCellRef(seed);
-	Call_Finish(result);
-	
-	return result;
-}

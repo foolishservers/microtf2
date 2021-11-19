@@ -432,7 +432,7 @@ stock void SetSpeed_SpecialRound()
 
 		case 6:
 		{
-			g_fActiveGameSpeed = GetRandomFloat(1.0, 2.3);
+			g_fActiveGameSpeed = GetRandomFloat(0.5, 2.3);
 		}
 
 		case 7:
