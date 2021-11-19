@@ -17,21 +17,23 @@ stock void DisplayOverlayToAll(const char[] path)
 	}
 }
 
-stock void PlaySoundToPlayer(int client, const char[] sound)
+stock void PlaySoundToPlayer(int client, const char[] sound, bool ignoreMapEnding = false)
 {
 	Player player = new Player(client);
 
-	if (player.IsInGame && !player.IsBot && !g_bIsMapEnding)
+	if (player.IsInGame && !player.IsBot && (ignoreMapEnding || (!ignoreMapEnding && !g_bIsMapEnding)))
 	{
-		EmitSoundToClient(client, sound, SOUND_FROM_PLAYER, SNDCHAN_AUTO, SNDLEVEL_NORMAL, SND_NOFLAGS, SNDVOL_NORMAL, GetSoundMultiplier());
+		char path[MAX_PATH_LENGTH];
+		Sounds_ConvertTokens(sound, path, sizeof(path));
+		EmitSoundToClient(client, path, SOUND_FROM_PLAYER, SNDCHAN_AUTO, SNDLEVEL_NORMAL, SND_NOFLAGS, SNDVOL_NORMAL, GetSoundMultiplier());
 	}
 }
 
-stock void PlaySoundToAll(const char[] sound)
+stock void PlaySoundToAll(const char[] sound, bool ignoreMapEnding = false)
 {
 	for (int i = 1; i <= MaxClients; i++)
 	{
-		PlaySoundToPlayer(i, sound);
+		PlaySoundToPlayer(i, sound, ignoreMapEnding);
 	}
 }
 
@@ -94,7 +96,7 @@ stock void ShowAnnotationWithBitfield(int client, int attachToEntity, float life
 	annotation.Cancel();	//Free the handle memory
 }
 
-stock void ShowPositionalAnnotation(int client, float[3] position, float lifetime, char text[32], bool showDistance)
+stock void ShowPositionalAnnotation(int client, float position[3], float lifetime, char text[32], bool showDistance)
 {
 	Annotation annotation = new Annotation();
 

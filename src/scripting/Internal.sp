@@ -6,7 +6,7 @@
 
 stock int FindEntityByClassname2(int startEntityId, const char[] classname)
 {
-	while (startEntityID > -1 && !IsValidEntity(startEntityId)) 
+	while (startEntityId > -1 && !IsValidEntity(startEntityId)) 
 	{
 		startEntityId--;
 	}
@@ -82,7 +82,7 @@ void EndGame()
 	AcceptEntityInput(entity, "EndGame");
 
 	ResetConVars();
-	EmitSoundToAll(SYSBGM_ENDING);
+	PlaySoundToAll(SYSBGM_ENDING, true);
 }
 
 stock int GetActivePlayers(int team = 0, bool mustbealive = false)
