@@ -89,17 +89,18 @@
 		"Name"			"Jump Rope"
 		"Enabled"		"1"
 		"Duration"		"70.1417"
-		"BackgroundMusic"	"gemidyne/warioware/bosses/bgm/jumprope.mp3"
+		"BackgroundMusic"	"gemidyne/warioware/{version}/bosses/bgm/jumprope.mp3"
 		"EntryPoint"		"BC1_EntryPoint"
 		"RequiresMultiplePlayers"	"1"
 		"BlockedSpecialRounds" "3,14"
+		"UsesCaption"	"1"
 	}
 	"10"
 	{
 		"Name"			"Kart Race"
 		"Enabled"		"0"
 		"Duration"		"70.1417"
-		"BackgroundMusic"	"gemidyne/warioware/bosses/bgm/jumprope.mp3"
+		"BackgroundMusic"	"gemidyne/warioware/{version}/bosses/bgm/jumprope.mp3"
 		"EntryPoint"		"BC2_EntryPoint"
 		"RequiresMultiplePlayers"	"1"
 		"BlockedSpecialRounds" "3,14"
@@ -109,8 +110,9 @@
 		"Name"			"BasketBomb"
 		"Enabled"		"1"
 		"Duration"		"33.0"
-		"BackgroundMusic"	"gemidyne/warioware/bosses/bgm/basketball.mp3"
+		"BackgroundMusic"	"gemidyne/warioware/{version}/bosses/bgm/basketball.mp3"
 		"EntryPoint"		"BC3_EntryPoint"
 		"BlockedSpecialRounds" "14"
+		"UsesCaption"	"1"
 	}
 }

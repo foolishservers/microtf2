@@ -163,56 +163,56 @@
 	}
 	"Bossgame8_Caption_CountTheProps"
 	{
-		"en"		"물건은 몇 개?"
+		"ko"		"물건은 몇 개?"
 	}
 	"Bossgame8_Caption_GetReady"
 	{
-		"en"		"준비..."
+		"ko"		"준비..."
 	}
 	"Bossgame8_Caption_CorrectAnswerWas_Hidden"
 	{
-		"en"		"정답은...\n???"
+		"ko"		"정답은...\n???"
 	}
 	"Bossgame8_Caption_CorrectAnswerWas_Visible"
 	{
 		"#format"		"{1:i}"
-		"en"		"정답은...\n{1}개입니다!"
+		"ko"		"정답은...\n{1}개입니다!"
 	}
 	"Bossgame8_Caption_ChooseARoom"
 	{
 		"#format"		"{1:s},{2:i},{3:i},{4:i},{5:i}"
-		"en"		"{1}는 몇 개 있었을까요? 맞는 정답을 골라주세요!\nA: {2}   B: {3}   C: {4}\n남은 시간: {5}"
+		"ko"		"{1}는 몇 개 있었을까요? 맞는 정답을 골라주세요!\nA: {2}   B: {3}   C: {4}\n남은 시간: {5}"
 	}
 	"Bossgame8_PropType_Dispensers"
 	{
-		"en"		"디스펜서"
+		"ko"		"디스펜서"
 	}
 	"Bossgame8_PropType_AmmoPacks"
 	{
-		"en"		"탄약"
+		"ko"		"탄약"
 	}
 	"Bossgame8_PropType_Barrels"
 	{
-		"en"		"드럼통"
+		"ko"		"드럼통"
 	}
 	"Bossgame8_PropType_Chairs"
 	{
-		"en"		"의자"
+		"ko"		"의자"
 	}
 	"Bossgame8_Annotation_AnswerRoomA"
 	{
 		"#format"		"{1:i}"
-		"en"		"A: {1}"
+		"ko"		"A: {1}"
 	}
 	"Bossgame8_Annotation_AnswerRoomB"
 	{
 		"#format"		"{1:i}"
-		"en"		"B: {1}"
+		"ko"		"B: {1}"
 	}
 	"Bossgame8_Annotation_AnswerRoomC"
 	{
 		"#format"		"{1:i}"
-		"en"		"C: {1}"
+		"ko"		"C: {1}"
 	}
 	"Bossgame9_Caption"
 	{
